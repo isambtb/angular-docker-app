@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routing } from './app.routes';
-import { MatButtonModule, MatRadioModule, MatInputModule, MatMenuModule, MatCheckboxModule } from '@angular/material';
+import { MatButtonModule, MatRadioModule, MatStepperModule, MatInputModule, MatMenuModule, MatCheckboxModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -30,6 +30,7 @@ import { PanelsComponent } from './dashboard/component/panels/panels.component';
 
 import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
+import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { WizardComponent } from './dashboard/component/wizard/wizard.component';
     SettingsComponent,
     PriceTableComponent,
     PanelsComponent,
-    WizardComponent
+    WizardComponent,
+    SplCreatorComponent
   ],
   imports: [
     BrowserModule,
@@ -65,6 +67,7 @@ import { WizardComponent } from './dashboard/component/wizard/wizard.component';
     MatRadioModule,
     MatInputModule,
     MatMenuModule,
+    MatStepperModule,
     MatCheckboxModule
   ],
   providers: [SettingsService],
