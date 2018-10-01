@@ -1,10 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routing } from './app.routes';
-import { MatButtonModule, MatRadioModule, MatStepperModule, MatInputModule, MatMenuModule, MatCheckboxModule } from '@angular/material';
+import {
+  MatButtonModule,
+  MatRadioModule,
+  MatStepperModule,
+  MatInputModule,
+  MatMenuModule,
+  MatListModule,
+  MatCheckboxModule,
+  MatTableModule,
+  MatTabsModule
+} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -31,6 +41,7 @@ import { PanelsComponent } from './dashboard/component/panels/panels.component';
 import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
+import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
 
 @NgModule({
   declarations: [
@@ -55,11 +66,13 @@ import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creat
     PriceTableComponent,
     PanelsComponent,
     WizardComponent,
-    SplCreatorComponent
+    SplCreatorComponent,
+    SplFormsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     routing,
     BrowserAnimationsModule,
@@ -68,7 +81,10 @@ import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creat
     MatInputModule,
     MatMenuModule,
     MatStepperModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatListModule,
+    MatTableModule,
+    MatTabsModule
   ],
   providers: [SettingsService],
   bootstrap: [AppComponent]

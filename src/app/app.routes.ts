@@ -17,6 +17,7 @@ import { LoginComponent } from './page/login/login.component';
 import { LockComponent } from './page/lock/lock.component';
 import { RegisterComponent } from './page/register/register.component';
 import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
+import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: 'components/price-table', component: PriceTableComponent },
       { path: 'components/panels', component: PanelsComponent },
       { path: 'components/wizard', component: WizardComponent },
-      { path: 'components/spl', component: SplCreatorComponent }
+      { path: 'components/spl', component: SplCreatorComponent },
+      { path: 'components/splforms', component: SplFormsComponent }
     ]
   }
 ];
