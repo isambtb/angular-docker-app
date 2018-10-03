@@ -13,7 +13,8 @@ import {
   MatListModule,
   MatCheckboxModule,
   MatTableModule,
-  MatTabsModule
+  MatTabsModule,
+  MatButtonToggleModule,
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { SettingsService } from './services/settings.service';
 import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
 import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
+import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,8 @@ import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.com
     PanelsComponent,
     WizardComponent,
     SplCreatorComponent,
-    SplFormsComponent
+    SplFormsComponent,
+    MedicamentInfosComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +87,9 @@ import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.com
     MatCheckboxModule,
     MatListModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonToggleModule,
+    MatRadioModule
   ],
   providers: [SettingsService],
   bootstrap: [AppComponent]

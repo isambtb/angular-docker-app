@@ -18,6 +18,7 @@ import { LockComponent } from './page/lock/lock.component';
 import { RegisterComponent } from './page/register/register.component';
 import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
 import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
+import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
       { path: 'components/panels', component: PanelsComponent },
       { path: 'components/wizard', component: WizardComponent },
       { path: 'components/spl', component: SplCreatorComponent },
-      { path: 'components/splforms', component: SplFormsComponent }
+      { path: 'components/splforms', component: SplFormsComponent },
+      { path: 'components/medicament', component: MedicamentInfosComponent }
     ]
   }
 ];
