@@ -11,24 +11,16 @@ import { RestService } from './rest.service';
 export class TableComponent implements OnInit {
   displayedColumns: string[] = ['code', 'medicamentName'];
   columns: string[];
+  dataSource = new MatTableDataSource<Medicament>(ELEMENT_DATA);
+
   constructor(public rest:RestService) { }
-  dataSource = new MatTableDataSource<Medicament>();
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
-    this.getProducts();
   }
 
-  getProducts() {
-    this.rest.getMedicaments().subscribe((data: {}) => {
-      this.dataSource.data = data['result'];
-      console.log(this.dataSource)
-    });
-  }
-
-  
 
 }
 
@@ -36,3 +28,42 @@ export interface Medicament {
   code: string;
   medicamentName: string;
 }
+
+const ELEMENT_DATA: Medicament[] = [
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+  {code: '62840118', medicamentName: 'AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule'},
+];

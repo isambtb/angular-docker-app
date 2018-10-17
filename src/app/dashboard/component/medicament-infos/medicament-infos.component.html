@@ -84,6 +84,12 @@
               </table>
             </mat-card>
           </div>
+          <div>
+            <h2>Routes of administration:</h2>
+            <mat-card>
+               <app-administration-routes></app-administration-routes>
+            </mat-card>
+          </div>
         </mat-card>
       </div>
     </mat-tab>
@@ -166,7 +172,7 @@
                   Characteristics 2
                 </mat-panel-title>
                 <mat-panel-description>
-                  Characteristics 
+                  Characteristics
                 </mat-panel-description>
               </mat-expansion-panel-header>
 
@@ -182,139 +188,190 @@
                 </mat-panel-description>
               </mat-expansion-panel-header>
 
-              <section class="example-section">
-                <label class="example-margin"> extMedMgt:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin">inUse:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin">prescriptionRequired:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> perfusion:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin">multidose:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> waterScale:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> soluble:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> partionable:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> formulary:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> speciality:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> narotic:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="false">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="true">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-              <section class="example-section">
-                <label class="example-margin"> forfait:</label>
-                <mat-radio-group>
-                  <mat-radio-button class="example-margin" value="primary">
-                    False
-                  </mat-radio-button>
-                  <mat-radio-button class="example-margin" value="accent">
-                    true
-                  </mat-radio-button>
-                </mat-radio-group>
-              </section>
-
+              <mat-grid-list cols="1" rowHeight="20:1">
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin"> extMedMgt:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin">inUse:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin">inUse:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin">inUse:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin">prescriptionRequired:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin"> perfusion:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin">multidose:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+                <mat-grid-tile>
+                  <section class="example-section">
+                    <label class="example-margin"> waterScale:</label>
+                    <mat-radio-group>
+                      <mat-radio-button class="example-margin" value="primary">
+                        False
+                      </mat-radio-button>
+                      <mat-radio-button class="example-margin" value="accent">
+                        true
+                      </mat-radio-button>
+                    </mat-radio-group>
+                  </section>
+                </mat-grid-tile>
+              </mat-grid-list>
+              <mat-grid-tile>
+                <section class="example-section">
+                  <label class="example-margin"> soluble:</label>
+                  <mat-radio-group>
+                    <mat-radio-button class="example-margin" value="primary">
+                      False
+                    </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="accent">
+                      true
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </section>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <section class="example-section">
+                  <label class="example-margin"> partionable:</label>
+                  <mat-radio-group>
+                    <mat-radio-button class="example-margin" value="primary">
+                      False
+                    </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="accent">
+                      true
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </section>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <section class="example-section">
+                  <label class="example-margin"> formulary:</label>
+                  <mat-radio-group>
+                    <mat-radio-button class="example-margin" value="primary">
+                      False
+                    </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="accent">
+                      true
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </section>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <section class="example-section">
+                  <label class="example-margin"> speciality:</label>
+                  <mat-radio-group>
+                    <mat-radio-button class="example-margin" value="primary">
+                      False
+                    </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="accent">
+                      true
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </section>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <section class="example-section">
+                  <label class="example-margin"> narotic:</label>
+                  <mat-radio-group>
+                    <mat-radio-button class="example-margin" value="false">
+                      False
+                    </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="true">
+                      true
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </section>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <section class="example-section">
+                  <label class="example-margin"> forfait:</label>
+                  <mat-radio-group>
+                    <mat-radio-button class="example-margin" selected="true" value="true">
+                      False
+                    </mat-radio-button>
+                    <mat-radio-button class="example-margin" value="accent">
+                      true
+                    </mat-radio-button>
+                  </mat-radio-group>
+                </section>
+              </mat-grid-tile>
             </mat-expansion-panel>
           </mat-accordion>
         </mat-card>

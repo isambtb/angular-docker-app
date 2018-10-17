@@ -19,7 +19,9 @@ import {
   MatPaginatorModule,
   MatSlideToggleModule,
   MatExpansionModule,
-  MatTreeModule
+  MatTreeModule,
+  MatGridListModule,
+  MatIconModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -50,6 +52,7 @@ import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creat
 import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
 import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AdministrationRoutesComponent } from './dashboard/component/medicament-infos/administration-routes/administration-routes.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +79,8 @@ import { HttpClientModule } from '@angular/common/http';
     WizardComponent,
     SplCreatorComponent,
     SplFormsComponent,
-    MedicamentInfosComponent
+    MedicamentInfosComponent,
+    AdministrationRoutesComponent
   ],
   imports: [
     BrowserModule,
@@ -101,7 +105,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatPaginatorModule,
     MatSlideToggleModule,
     MatExpansionModule,
-    MatTreeModule
+    MatTreeModule,
+    MatGridListModule,
+    MatIconModule
   ],
   providers: [SettingsService],
   bootstrap: [AppComponent]
