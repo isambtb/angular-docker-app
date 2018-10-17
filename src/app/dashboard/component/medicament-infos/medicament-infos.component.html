@@ -14,18 +14,20 @@
           </mat-card-header>
           <div>
             <mat-card>
-                <table>
-                    <tr>
-                      <th> Medicament Code</th>
-                      <th> Medicament Name</th>
-                      <th> Medicament form</th>
-                    </tr>
-                    <tr>
-                      <td> {{medicamentCode}}</td>
-                      <td> {{medicamentName}}</td>
-                      <td> Solution injectable</td>
-                    </tr>
-                  </table>
+              <table>
+                <tr>
+                  <th> Medicament Code</th>
+                  <th> Medicament Name</th>
+                  <th> Medicament form</th>
+                  <th> marketed</th>
+                </tr>
+                <tr>
+                  <td> 62840118</td>
+                  <td> AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule</td>
+                  <td> Solution injectable</td>
+                  <td> true</td>
+                </tr>
+              </table>
             </mat-card>
           </div>
           <div>
@@ -39,7 +41,7 @@
                     <th> Manifucturer representer</th>
                   </tr>
                   <tr>
-                    <td> {{medicamentCode}}</td>
+                    <td> ETAT</td>
                     <td> GLAXOSMITHKLINE </td>
                     <td> representer Name </td>
                   </tr>
@@ -49,38 +51,38 @@
           </div>
           <div>
             <h2>Ingredients:</h2>
-             <mat-card>
-                <table>
-                    <tr>
-                      <th>ingredient Code</th>
-                      <th>Quantity </th>
-                      <th>Name</th>
-                      <th>Description</th>
-                      <th>Equivalent</th>
-                    </tr>
-                    <tr>
-                      <td>ACTIB</td>
-                      <td>5 mg</td>
-                      <td>Olanzapine</td>
-                      <td>DCI</td>
-                      <td>RANITIDINE CHLORHYDRATE</td>
-                    </tr>
-                    <tr>
-                      <td>ACTIB</td>
-                      <td>5 mg</td>
-                      <td>Olanzapine</td>
-                      <td>DCI</td>
-                      <td>RANITIDINE CHLORHYDRATE</td>
-                    </tr>
-                    <tr>
-                      <td>ACTIB</td>
-                      <td>5 mg</td>
-                      <td>Olanzapine</td>
-                      <td>DCI</td>
-                      <td>RANITIDINE CHLORHYDRATE</td>
-                    </tr>
-                  </table>
-             </mat-card>
+            <mat-card>
+              <table>
+                <tr>
+                  <th>ingredient Code</th>
+                  <th>Quantity </th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Equivalent</th>
+                </tr>
+                <tr>
+                  <td>ACTIB</td>
+                  <td>5 mg</td>
+                  <td>Olanzapine</td>
+                  <td>DCI</td>
+                  <td>RANITIDINE CHLORHYDRATE</td>
+                </tr>
+                <tr>
+                  <td>ACTIB</td>
+                  <td>5 mg</td>
+                  <td>Olanzapine</td>
+                  <td>DCI</td>
+                  <td>RANITIDINE CHLORHYDRATE</td>
+                </tr>
+                <tr>
+                  <td>ACTIB</td>
+                  <td>5 mg</td>
+                  <td>Olanzapine</td>
+                  <td>DCI</td>
+                  <td>RANITIDINE CHLORHYDRATE</td>
+                </tr>
+              </table>
+            </mat-card>
           </div>
         </mat-card>
       </div>
@@ -88,7 +90,57 @@
     <mat-tab label="Packaging and Price">
       <div class="example-large-box mat-elevation-z4">
         <mat-card>
-
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+              <h2> {{medicamentName}}</h2>
+            </mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+          </mat-card-header>
+          <div>
+            <h2> Packaging:</h2>
+            <mat-card>
+              <table>
+                <tr>
+                  <th>Package Code</th>
+                  <th>Name </th>
+                  <th>Quantity</th>
+                </tr>
+                <tr>
+                  <td>8805</td>
+                  <td>Zyprexa compr. enr. 5 mg</td>
+                  <td>4 Plaquette</td>
+                </tr>
+              </table>
+            </mat-card>
+          </div>
+          <div>
+            <h2> Pricing:</h2>
+            <mat-card>
+              <table>
+                <tr>
+                  <th> Code </th>
+                  <th> Value </th>
+                  <th> Price</th>
+                </tr>
+                <tr>
+                  <td> TTC</td>
+                  <td> 5,29</td>
+                  <td> EUR</td>
+                </tr>
+                <tr>
+                  <td> FAB</td>
+                  <td> 3,42</td>
+                  <td> EUR</td>
+                </tr>
+                <tr>
+                  <td> PEC</td>
+                  <td> 15</td>
+                  <td></td>
+                </tr>
+              </table>
+            </mat-card>
+          </div>
         </mat-card>
       </div>
     </mat-tab>
@@ -114,7 +166,7 @@
                   Characteristics 2
                 </mat-panel-title>
                 <mat-panel-description>
-
+                  Characteristics 
                 </mat-panel-description>
               </mat-expansion-panel-header>
 
@@ -123,16 +175,16 @@
             <mat-expansion-panel>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Characteristics 2
+                  Characteristics 3
                 </mat-panel-title>
                 <mat-panel-description>
-
+                  Characteristics St-Luc
                 </mat-panel-description>
               </mat-expansion-panel-header>
 
               <section class="example-section">
                 <label class="example-margin"> extMedMgt:</label>
-                <mat-radio-group >
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -143,7 +195,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin">inUse:</label>
-                <mat-radio-group >
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -154,7 +206,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin">prescriptionRequired:</label>
-                <mat-radio-group >
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -165,7 +217,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> perfusion:</label>
-                <mat-radio-group >
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -176,7 +228,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin">multidose:</label>
-                <mat-radio-group >
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -231,7 +283,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> speciality:</label>
-                <mat-radio-group >
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>

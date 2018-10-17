@@ -18,7 +18,8 @@ import {
   MatButtonToggleModule,
   MatPaginatorModule,
   MatSlideToggleModule,
-  MatExpansionModule
+  MatExpansionModule,
+  MatTreeModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -99,7 +100,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatCardModule,
     MatPaginatorModule,
     MatSlideToggleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTreeModule
   ],
   providers: [SettingsService],
   bootstrap: [AppComponent]
