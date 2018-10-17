@@ -14,18 +14,18 @@
           </mat-card-header>
           <div>
             <mat-card>
-              <table>
-                <tr>
-                  <th> Medicament Code</th>
-                  <th> Medicament Name</th>
-                  <th> Medicament form</th>
-                </tr>
-                <tr>
-                  <td> {{medicamentCode}}</td>
-                  <td> {{medicamentName}}</td>
-                  <td> Solution injectable</td>
-                </tr>
-              </table>
+                <table>
+                    <tr>
+                      <th> Medicament Code</th>
+                      <th> Medicament Name</th>
+                      <th> Medicament form</th>
+                    </tr>
+                    <tr>
+                      <td> {{medicamentCode}}</td>
+                      <td> {{medicamentName}}</td>
+                      <td> Solution injectable</td>
+                    </tr>
+                  </table>
             </mat-card>
           </div>
           <div>
@@ -49,38 +49,38 @@
           </div>
           <div>
             <h2>Ingredients:</h2>
-            <mat-card>
-              <table>
-                <tr>
-                  <th>ingredient Code</th>
-                  <th>Quantity </th>
-                  <th>Name</th>
-                  <th>Description</th>
-                  <th>Equivalent</th>
-                </tr>
-                <tr>
-                  <td>ACTIB</td>
-                  <td>5 mg</td>
-                  <td>Olanzapine</td>
-                  <td>DCI</td>
-                  <td>RANITIDINE CHLORHYDRATE</td>
-                </tr>
-                <tr>
-                  <td>ACTIB</td>
-                  <td>5 mg</td>
-                  <td>Olanzapine</td>
-                  <td>DCI</td>
-                  <td>RANITIDINE CHLORHYDRATE</td>
-                </tr>
-                <tr>
-                  <td>ACTIB</td>
-                  <td>5 mg</td>
-                  <td>Olanzapine</td>
-                  <td>DCI</td>
-                  <td>RANITIDINE CHLORHYDRATE</td>
-                </tr>
-              </table>
-            </mat-card>
+             <mat-card>
+                <table>
+                    <tr>
+                      <th>ingredient Code</th>
+                      <th>Quantity </th>
+                      <th>Name</th>
+                      <th>Description</th>
+                      <th>Equivalent</th>
+                    </tr>
+                    <tr>
+                      <td>ACTIB</td>
+                      <td>5 mg</td>
+                      <td>Olanzapine</td>
+                      <td>DCI</td>
+                      <td>RANITIDINE CHLORHYDRATE</td>
+                    </tr>
+                    <tr>
+                      <td>ACTIB</td>
+                      <td>5 mg</td>
+                      <td>Olanzapine</td>
+                      <td>DCI</td>
+                      <td>RANITIDINE CHLORHYDRATE</td>
+                    </tr>
+                    <tr>
+                      <td>ACTIB</td>
+                      <td>5 mg</td>
+                      <td>Olanzapine</td>
+                      <td>DCI</td>
+                      <td>RANITIDINE CHLORHYDRATE</td>
+                    </tr>
+                  </table>
+             </mat-card>
           </div>
         </mat-card>
       </div>
@@ -132,7 +132,7 @@
 
               <section class="example-section">
                 <label class="example-margin"> extMedMgt:</label>
-                <mat-radio-group [(ngModel)]="extMedMgt">
+                <mat-radio-group >
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -143,7 +143,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin">inUse:</label>
-                <mat-radio-group [(ngModel)]="inUse">
+                <mat-radio-group >
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -154,7 +154,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin">prescriptionRequired:</label>
-                <mat-radio-group [(ngModel)]="prescriptionRequired">
+                <mat-radio-group >
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -165,7 +165,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> perfusion:</label>
-                <mat-radio-group [(ngModel)]="perfusion">
+                <mat-radio-group >
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -176,7 +176,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin">multidose:</label>
-                <mat-radio-group [(ngModel)]="multidose">
+                <mat-radio-group >
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -187,7 +187,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> waterScale:</label>
-                <mat-radio-group [(ngModel)]="waterScale">
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -198,7 +198,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> soluble:</label>
-                <mat-radio-group [(ngModel)]="soluble">
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -209,7 +209,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> partionable:</label>
-                <mat-radio-group [(ngModel)]="partionable">
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -220,7 +220,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> formulary:</label>
-                <mat-radio-group [(ngModel)]="formulary">
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -231,7 +231,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> speciality:</label>
-                <mat-radio-group [(ngModel)]="speciality">
+                <mat-radio-group >
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
@@ -242,7 +242,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> narotic:</label>
-                <mat-radio-group [(ngModel)]="narotic">
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="false">
                     False
                   </mat-radio-button>
@@ -253,7 +253,7 @@
               </section>
               <section class="example-section">
                 <label class="example-margin"> forfait:</label>
-                <mat-radio-group [(ngModel)]="forfait">
+                <mat-radio-group>
                   <mat-radio-button class="example-margin" value="primary">
                     False
                   </mat-radio-button>
