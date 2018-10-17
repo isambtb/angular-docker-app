@@ -1,12 +1,286 @@
 <div class="container">
   <app-navbar title="Wizard"></app-navbar>
   <h2>Medicaments Details</h2>
-  <mat-tab-group color="primary" backgroundColor="warn">
-    <mat-tab label="Medicament info"> Content 1 </mat-tab>
-    <mat-tab label="packaging and price"> Content 2 </mat-tab>
-    <mat-tab label=""> Content 2 </mat-tab>
+  <mat-tab-group color="primary" backgroundColor="primary">
+    <mat-tab label="Medicament info">
+      <div class="example-large-box mat-elevation-z4">
+        <mat-card>
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>
+              <h2>General information:</h2>
+            </mat-card-title>
+            <mat-card-subtitle>{{medicamentName}}</mat-card-subtitle>
+          </mat-card-header>
+          <div>
+            <mat-card>
+              <table>
+                <tr>
+                  <th> Medicament Code</th>
+                  <th> Medicament Name</th>
+                  <th> Medicament form</th>
+                </tr>
+                <tr>
+                  <td> {{medicamentCode}}</td>
+                  <td> {{medicamentName}}</td>
+                  <td> Solution injectable</td>
+                </tr>
+              </table>
+            </mat-card>
+          </div>
+          <div>
+            <h2>Manifucturer Organization:</h2>
+            <mat-card>
+              <div>
+                <table>
+                  <tr>
+                    <th> Manifucturer Code</th>
+                    <th> Manifucturer Name</th>
+                    <th> Manifucturer representer</th>
+                  </tr>
+                  <tr>
+                    <td> {{medicamentCode}}</td>
+                    <td> GLAXOSMITHKLINE </td>
+                    <td> representer Name </td>
+                  </tr>
+                </table>
+              </div>
+            </mat-card>
+          </div>
+          <div>
+            <h2>Ingredients:</h2>
+            <mat-card>
+              <table>
+                <tr>
+                  <th>ingredient Code</th>
+                  <th>Quantity </th>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Equivalent</th>
+                </tr>
+                <tr>
+                  <td>ACTIB</td>
+                  <td>5 mg</td>
+                  <td>Olanzapine</td>
+                  <td>DCI</td>
+                  <td>RANITIDINE CHLORHYDRATE</td>
+                </tr>
+                <tr>
+                  <td>ACTIB</td>
+                  <td>5 mg</td>
+                  <td>Olanzapine</td>
+                  <td>DCI</td>
+                  <td>RANITIDINE CHLORHYDRATE</td>
+                </tr>
+                <tr>
+                  <td>ACTIB</td>
+                  <td>5 mg</td>
+                  <td>Olanzapine</td>
+                  <td>DCI</td>
+                  <td>RANITIDINE CHLORHYDRATE</td>
+                </tr>
+              </table>
+            </mat-card>
+          </div>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Packaging and Price">
+      <div class="example-large-box mat-elevation-z4">
+        <mat-card>
+
+        </mat-card>
+      </div>
+    </mat-tab>
     <mat-tab label="Characteristics">
-      <mat-radio-button value="1">Option 1</mat-radio-button>
+      <div class="example-large-box mat-elevation-z4">
+        <mat-card>
+          <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Characteristics 1
+                </mat-panel-title>
+                <mat-panel-description>
+                  Packaging Characteristics
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Characteristics 2
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+            </mat-expansion-panel>
+
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Characteristics 2
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+
+              <section class="example-section">
+                <label class="example-margin"> extMedMgt:</label>
+                <mat-radio-group [(ngModel)]="extMedMgt">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin">inUse:</label>
+                <mat-radio-group [(ngModel)]="inUse">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin">prescriptionRequired:</label>
+                <mat-radio-group [(ngModel)]="prescriptionRequired">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> perfusion:</label>
+                <mat-radio-group [(ngModel)]="perfusion">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin">multidose:</label>
+                <mat-radio-group [(ngModel)]="multidose">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> waterScale:</label>
+                <mat-radio-group [(ngModel)]="waterScale">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> soluble:</label>
+                <mat-radio-group [(ngModel)]="soluble">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> partionable:</label>
+                <mat-radio-group [(ngModel)]="partionable">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> formulary:</label>
+                <mat-radio-group [(ngModel)]="formulary">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> speciality:</label>
+                <mat-radio-group [(ngModel)]="speciality">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> narotic:</label>
+                <mat-radio-group [(ngModel)]="narotic">
+                  <mat-radio-button class="example-margin" value="false">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="true">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+              <section class="example-section">
+                <label class="example-margin"> forfait:</label>
+                <mat-radio-group [(ngModel)]="forfait">
+                  <mat-radio-button class="example-margin" value="primary">
+                    False
+                  </mat-radio-button>
+                  <mat-radio-button class="example-margin" value="accent">
+                    true
+                  </mat-radio-button>
+                </mat-radio-group>
+              </section>
+
+            </mat-expansion-panel>
+          </mat-accordion>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Codes">
+      <div class="example-large-box mat-elevation-z4">
+      </div>
+    </mat-tab>
+    <mat-tab label="Warning">
+      <div class="example-large-box mat-elevation-z4">
+        Large content
+      </div>
+    </mat-tab>
+    <mat-tab label="Medicament rules">
+      <div class="example-large-box mat-elevation-z4">
+        Large content
+      </div>
     </mat-tab>
   </mat-tab-group>
 </div>

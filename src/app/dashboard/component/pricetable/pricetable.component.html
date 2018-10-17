@@ -1,48 +1,35 @@
 <div class="container">
-  <app-navbar title="Price Table"></app-navbar>
-  <div class="row page-title">
-    <div class="col-md-8 col-md-offset-2">
-      <div class="row">
-        <div class="col-md-4 page-title">
-          <div class="card card-raised">
-            <h6>Individual</h6>
-            <div class="icon">
-              <i class="material-icons">person</i>
-            </div>
-            <h3 class="card-title">Free</h3>
-            <p class="card-description text-center">
-              This is good if your company size is between 2 and 10 Persons.
-            </p>
-            <button mat-raised-button class="btn btn-rose btn-round">CHOOSE PLAN</button>
-          </div>
-        </div>
-        <div class="col-md-4 page-title">
-          <div class="card card-raised">
-            <h6>Small Company</h6>
-            <div class="icon">
-              <i class="material-icons">weekend</i>
-            </div>
-            <h3 class="card-title">$29 / m</h3>
-            <p class="card-description text-center">
-              This is good if your company size is between 2 and 10 Persons.
-            </p>
-            <button mat-raised-button class="btn btn-rose btn-round">CHOOSE PLAN</button>
-          </div>
-        </div>
-        <div class="col-md-4 page-title">
-          <div class="card card-raised">
-            <h6>Enterprise</h6>
-            <div class="icon">
-              <i class="material-icons">home</i>
-            </div>
-            <h3 class="card-title">$79 / m</h3>
-            <p class="card-description text-center">
-              This is good if your company size is between 2 and 10 Persons.
-            </p>
-            <button mat-raised-button class="btn btn-rose btn-round">CHOOSE PLAN</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef> Weight </th>
+        <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
   </div>
 </div>

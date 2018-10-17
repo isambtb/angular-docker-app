@@ -4,10 +4,10 @@ export const ROUTES = [
     { path: 'profile', title: 'User Profile', icon: 'person', children: null },
     { path: 'table', title: 'Medicament List', icon: 'content_paste', children: null },
     {
-        path: '#component', id: 'component', title: 'SPLs', icon: 'apps', children: [
-            { path: 'components/splforms', title: 'New', icon: 'W' },
-            { path: 'components/spl', title: 'Search', icon: 'W' },
-            { path: 'components/spl', title: 'Edit', icon: 'W' },
+        path: '#component', id: 'component', title: 'Medicaments management', icon: 'apps', children: [
+            { path: 'components/splforms', title: 'Add medicament', icon: 'A' },
+            { path: 'components/spl', title: 'Search', icon: 'S' },
+            { path: 'components/medicament', title: 'Detail', icon: 'i' },
         ]
     },
     { path: 'alert', title: 'Sweet Alert', icon: 'warning', children: null },
