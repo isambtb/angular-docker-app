@@ -8,25 +8,21 @@ import { RestService } from '../../table/rest.service';
 })
 export class MedicamentInfosComponent implements OnInit {
   
-  dataSource:any = [];
+  dataSource:any;
   medicamentName:String;
   medicamentCode:String;
   displayedColumns: string[] = ['code', 'Medicament Name', "detail"];
   columns: string[];
+  
   constructor(public rest:RestService) { }
 
   ngOnInit() {
-    this.getProducts();
+    this.dataSource = this.getMedicament();
+    console.log(this.dataSource)
   }
    
-  getProducts() {
-    this.dataSource = [];
-    this.columns =  ["code", "medicamentName", 'details']
-    this.rest.getMedicament("1").subscribe((data: {}) => {
-      this.medicamentName = data["medicamentName"];
-      this.medicamentCode = data["code"];
-      this.dataSource = data["code"];
-    });
+  getMedicament(){
+    return this.rest.getMedicaments();
   }
 
  

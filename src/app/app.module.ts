@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -47,12 +47,11 @@ import { PriceTableComponent } from './dashboard/component/pricetable/pricetable
 import { PanelsComponent } from './dashboard/component/panels/panels.component';
 
 import { SettingsService } from './services/settings.service';
-import { WizardComponent } from './dashboard/component/wizard/wizard.component';
 import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
 import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
 import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AdministrationRoutesComponent } from './dashboard/component/medicament-infos/administration-routes/administration-routes.component';
+import { MedicinalProductsComponent } from './dashboard/medicinal-products/medicinal-products.component';
 
 @NgModule({
   declarations: [
@@ -76,11 +75,10 @@ import { AdministrationRoutesComponent } from './dashboard/component/medicament-
     SettingsComponent,
     PriceTableComponent,
     PanelsComponent,
-    WizardComponent,
     SplCreatorComponent,
     SplFormsComponent,
     MedicamentInfosComponent,
-    AdministrationRoutesComponent
+    MedicinalProductsComponent
   ],
   imports: [
     BrowserModule,
@@ -109,6 +107,7 @@ import { AdministrationRoutesComponent } from './dashboard/component/medicament-
     MatGridListModule,
     MatIconModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [SettingsService],
   bootstrap: [AppComponent]
 })

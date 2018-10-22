@@ -10,7 +10,7 @@ import { SweetAlertComponent } from './dashboard/sweetalert/sweetalert.component
 import { SettingsComponent } from './dashboard/settings/settings.component';
 import { PriceTableComponent } from './dashboard/component/pricetable/pricetable.component';
 import { PanelsComponent } from './dashboard/component/panels/panels.component';
-import { WizardComponent } from './dashboard/component/wizard/wizard.component';
+import { MedicinalProductsComponent } from './dashboard/medicinal-products/medicinal-products.component';
 
 import { RootComponent } from './dashboard/root/root.component';
 import { LoginComponent } from './page/login/login.component';
@@ -28,16 +28,15 @@ const routes: Routes = [
     path: 'dashboard', component: RootComponent, children: [
       { path: '', component: HomeComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'table', component: TableComponent },
+      { path: 'table', component: MedicinalProductsComponent },
       { path: 'notification', component: NotificationComponent },
       { path: 'alert', component: SweetAlertComponent },
       { path: 'settings', component: SettingsComponent },
       { path: 'components/price-table', component: PriceTableComponent },
       { path: 'components/panels', component: PanelsComponent },
-      { path: 'components/wizard', component: WizardComponent },
       { path: 'components/spl', component: SplCreatorComponent },
       { path: 'components/splforms', component: SplFormsComponent },
-      { path: 'components/medicament', component: MedicamentInfosComponent }
+      { path: 'components/medicament/:id', component: MedicamentInfosComponent }
     ]
   }
 ];
