@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 })
 export class MedicinalService {
 
-  private serviceUrl = 'http://localhost:8080/api/medicinalProducts/';
+  private serviceUrl = 'http://37.235.89.45:8080/api/medicinalProducts/';
   
   constructor(private http: HttpClient) { }
   
