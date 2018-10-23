@@ -7,6 +7,8 @@ import { DetailsService, MedicinalProduct } from './details.service';
   styleUrls: ['./medicament-infos.component.css']
 })
 export class MedicamentInfosComponent implements OnInit {
+  
+  medicamentName: string ="",
 
   medicinalProduct: MedicinalProduct[];
   constructor(public rest:DetailsService) { }
