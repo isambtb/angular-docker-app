@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient }   from '@angular/common/http';
 import { Observable }   from 'rxjs/Observable';
+import { MedicinalProduct } from './MedicinalProduct'
 import 'rxjs/add/operator/map';
 
 
@@ -20,14 +21,4 @@ export class MedicinalService {
 }
 
 
-export class MedicinalProduct{
-  id:number
-  code: string
-  codeSystem: string
-  medicinalProductName: string
-  price: string
 
-  constructor(values: Object = {}) {
-    Object.assign(this, values);
-  }
-}

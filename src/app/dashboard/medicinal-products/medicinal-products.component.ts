@@ -11,7 +11,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./medicinal-products.component.css']
 })
 export class MedicinalProductsComponent implements OnInit {
-
+  selectedRowIndex: number = -1;
   liste: MedicinalProduct[] = [];
   dataSource = new MatTableDataSource<MedicinalProduct>();
   displayedColumns: string[] = [
@@ -20,7 +20,8 @@ export class MedicinalProductsComponent implements OnInit {
     "code",
     "codeSystem",
     "medicinalProductName",
-    "price"
+    "price",
+    "manufacturer"
   ];
 
   selection = new SelectionModel<MedicinalProduct>(true, []);
@@ -55,11 +56,15 @@ export class MedicinalProductsComponent implements OnInit {
 
   onClickView(){
     const m = new MedicinalProduct(this.selection.selected[0]);
-    console.log(m.id);
+    console.log(m.booleanCharacteristic)
     this.router.navigate(['/dashboard/components/medicament/'+ m.id]);
   }
   getRecord(row){
+    this.selectedRowIndex = row.id;
     console.log(row)
   }
 
+  highlight(row){
+    this.selectedRowIndex = row.id;
+  }
 }

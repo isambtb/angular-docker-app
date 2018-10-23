@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../../table/rest.service';
+import { DetailsService, MedicinalProduct } from './details.service';
 
 @Component({
   selector: 'app-medicament-infos',
@@ -7,22 +7,16 @@ import { RestService } from '../../table/rest.service';
   styleUrls: ['./medicament-infos.component.css']
 })
 export class MedicamentInfosComponent implements OnInit {
-  
-  dataSource:any;
-  medicamentName:String;
-  medicamentCode:String;
-  displayedColumns: string[] = ['code', 'Medicament Name', "detail"];
-  columns: string[];
-  
-  constructor(public rest:RestService) { }
+
+  medicinalProduct: MedicinalProduct[];
+  constructor(public rest:DetailsService) { }
 
   ngOnInit() {
-    this.dataSource = this.getMedicament();
-    console.log(this.dataSource)
+    console.log(this.getMedicament())
   }
    
   getMedicament(){
-    return this.rest.getMedicaments();
+    return this.rest.getmedicinalProduct('1');
   }
 
  
