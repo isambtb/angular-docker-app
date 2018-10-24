@@ -10,7 +10,7 @@
             <mat-card-title>
               <h2>General information:</h2>
             </mat-card-title>
-            <mat-card-subtitle>AZANTAC</mat-card-subtitle>
+            <mat-card-subtitle>{{medicinalProduct.medicinalProductName}}</mat-card-subtitle>
           </mat-card-header>
           <div>
             <mat-card>
@@ -22,8 +22,8 @@
                   <th> marketed</th>
                 </tr>
                 <tr>
-                  <td> 62840118</td>
-                  <td> AZANTAC INJECTABLE 50 mg/2 ml, solution injectable en ampoule</td>
+                  <td> {{medicinalProduct.code}}</td>
+                  <td> {{medicinalProduct.medicinalProductName}}</td>
                   <td> Solution injectable</td>
                   <td> true</td>
                 </tr>
@@ -36,14 +36,14 @@
               <div>
                 <table>
                   <tr>
-                    <th> Manufacturer Code</th>
+                    <th> Manufacturer manufacturerCodeSystem</th>
                     <th> Manufacturer Name</th>
-                    <th> Manufacturer representer</th>
+                    <th> Manufacturer extension</th>
                   </tr>
                   <tr>
-                    <td> ETAT</td>
-                    <td> GLAXOSMITHKLINE </td>
-                    <td> representer Name </td>
+                    <td> {{medicinalProduct.manufacturer.manufacturerCodeSystem}}</td>
+                    <td>  {{medicinalProduct.manufacturer.manufacturerName}} </td>
+                    <td>  {{medicinalProduct.manufacturer.manufacturerExtension}}  </td>
                   </tr>
                 </table>
               </div>

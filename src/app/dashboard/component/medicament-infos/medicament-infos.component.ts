@@ -1,27 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { DetailsService, MedicinalProduct } from './details.service';
+import { Component, OnInit } from "@angular/core";
+import { DetailsService } from "./details.service";
+import { MedicinalProduct } from "../../medicinal-products/MedicinalProduct";
+import { MatTableDataSource } from "@angular/material";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-medicament-infos',
-  templateUrl: './medicament-infos.component.html',
-  styleUrls: ['./medicament-infos.component.css']
+  selector: "app-medicament-infos",
+  templateUrl: "./medicament-infos.component.html",
+  styleUrls: ["./medicament-infos.component.css"]
 })
 export class MedicamentInfosComponent implements OnInit {
-
-  medicamentName: string ="";
-  
-  medicinalProduct: Object;
-  constructor(public rest:DetailsService) { }
+  medicamentName: string = "";
+  dataSource = new MatTableDataSource<MedicinalProduct>();
+  medicinalProduct: MedicinalProduct = new MedicinalProduct();
+  constructor(
+    public rest: DetailsService,
+    private route: ActivatedRoute) {}
 
   ngOnInit() {
-   this.getMedicinalProduct();
-   console.log(this.medicinalProduct)
-  }
-   
-  getMedicinalProduct(){
-    this.rest.http.get(this.rest.serviceUrl + 1).subscribe(data =>{
-      this.medicinalProduct = data;
-    })
+    
+    this.route.params.subscribe( params => {
+      this.getMedicinalProduct(params['id'])
+    });
+    console.log(this.medicinalProduct);
   }
 
+  getMedicinalProduct(id:number) {
+    this.rest.getUser().subscribe(todos => {
+      for (let m of todos) {
+        m = new MedicinalProduct(m);
+        if (m.id == id) {
+          Object.assign(this.medicinalProduct, m);
+        }
+      }
+    });
+  }
 }
