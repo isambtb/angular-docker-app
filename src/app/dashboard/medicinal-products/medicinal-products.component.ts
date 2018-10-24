@@ -20,7 +20,6 @@ export class MedicinalProductsComponent implements OnInit {
     "code",
     "codeSystem",
     "medicinalProductName",
-    "price",
     "manufacturer"
   ];
 

@@ -9,18 +9,19 @@ import { DetailsService, MedicinalProduct } from './details.service';
 export class MedicamentInfosComponent implements OnInit {
 
   medicamentName: string ="";
-
-  medicinalProduct: MedicinalProduct[];
+  
+  medicinalProduct: Object;
   constructor(public rest:DetailsService) { }
 
   ngOnInit() {
-    console.log(this.getMedicament())
+   this.getMedicinalProduct();
+   console.log(this.medicinalProduct)
   }
    
-  getMedicament(){
-    return this.rest.getmedicinalProduct('1');
+  getMedicinalProduct(){
+    this.rest.http.get(this.rest.serviceUrl + 1).subscribe(data =>{
+      this.medicinalProduct = data;
+    })
   }
-
- 
 
 }

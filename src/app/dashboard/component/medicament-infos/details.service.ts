@@ -10,12 +10,12 @@ import { map, catchError, tap } from 'rxjs/operators';
 })
 export class DetailsService {
   
-  private serviceUrl = 'http://37.235.89.45:8080/api/medicinalProducts/';
+  public serviceUrl = 'http://37.235.89.45:8080/api/medicinalProducts/';
   
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
   
-  getmedicinalProduct(id: string): Observable<MedicinalProduct[]> {
-    return this.http.get<MedicinalProduct[]>(this.serviceUrl + id);
+  getmedicinalProduct(id: number):any {
+    return this.http.get(this.serviceUrl + id);
   }
 
 }
