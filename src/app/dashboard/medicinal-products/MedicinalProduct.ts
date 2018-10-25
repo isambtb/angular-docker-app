@@ -6,6 +6,7 @@ export class MedicinalProduct {
   manufacturer: Manufacturer;
   ingredients: Ingredient[];
   asContent:AsContent;
+  consumedIn: ConsumedIn;
   booleanCharacteristic: BooleanCharacteristic;
 
   constructor(values: Object = {}) {
