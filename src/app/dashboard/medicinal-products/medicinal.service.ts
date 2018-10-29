@@ -8,7 +8,7 @@ import "rxjs/add/operator/map";
   providedIn: "root"
 })
 export class MedicinalService {
-  private serviceUrl = "http://37.235.89.45:8080/api/medicinalProducts/";
+  private serviceUrl = "http://37.235.89.45:8080/api/medicinalProducts/pages";
 
   constructor(private http: HttpClient) {}
 
