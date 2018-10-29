@@ -14,7 +14,7 @@ export class MedicinalService {
 
   getUser(length: number, size: number): Observable<MedicinalProduct[]> {
     return this.http.get<MedicinalProduct[]>(
-      this.serviceUrl + "/" + length + "/" + size
+      this.serviceUrl + "/" + length + "/" + 15
     );
   }
 }

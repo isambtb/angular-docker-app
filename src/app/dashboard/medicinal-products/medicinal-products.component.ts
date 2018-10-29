@@ -48,6 +48,7 @@ export class MedicinalProductsComponent implements OnInit {
   @ViewChild(MatPaginator)
   paginator: MatPaginator;
 
+
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.rest.getUser(this.tableLength, this.pageSize).subscribe(todos => {
@@ -68,4 +69,5 @@ export class MedicinalProductsComponent implements OnInit {
   highlight(row) {
     this.selectedRowIndex = row.id;
   }
+
 }
