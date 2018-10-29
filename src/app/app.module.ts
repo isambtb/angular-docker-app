@@ -43,8 +43,6 @@ import { LockComponent } from './page/lock/lock.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
-import { PriceTableComponent } from './dashboard/component/pricetable/pricetable.component';
-import { PanelsComponent } from './dashboard/component/panels/panels.component';
 
 import { SettingsService } from './services/settings.service';
 import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
@@ -73,8 +71,6 @@ import { MedicinalProductsComponent } from './dashboard/medicinal-products/medic
     HeaderComponent,
     FooterComponent,
     SettingsComponent,
-    PriceTableComponent,
-    PanelsComponent,
     SplCreatorComponent,
     SplFormsComponent,
     MedicamentInfosComponent,

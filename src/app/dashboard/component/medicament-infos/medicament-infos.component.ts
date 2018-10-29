@@ -3,6 +3,9 @@ import { DetailsService } from "./details.service";
 import { MedicinalProduct } from "../../medicinal-products/MedicinalProduct";
 import { MatTableDataSource } from "@angular/material";
 import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+
+import {MedicinalProductService} from '../../../core/services/medicinal-product.service'
 
 @Component({
   selector: "app-medicament-infos",
@@ -14,7 +17,7 @@ export class MedicamentInfosComponent implements OnInit {
   dataSource = new MatTableDataSource<MedicinalProduct>();
   medicinalProduct: MedicinalProduct = new MedicinalProduct();
   constructor(
-    public rest: DetailsService,
+    public rest: MedicinalProductService,
     private route: ActivatedRoute) {}
 
   ngOnInit() {
@@ -24,13 +27,8 @@ export class MedicamentInfosComponent implements OnInit {
   }
 
   getMedicinalProduct(id:number) {
-    this.rest.getUser().subscribe(todos => {
-      for (let m of todos) {
-        m = new MedicinalProduct(m);
-        if (m.id == id) {
-          Object.assign(this.medicinalProduct, m);
-        }
-      }
-    });
+    this.rest.get(id).pipe(
+      map(data => console.log(data))
+    );
   }
 }
