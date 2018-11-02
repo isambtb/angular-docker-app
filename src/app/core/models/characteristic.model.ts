@@ -1,4 +1,4 @@
-export interface Characteristic {
+export class Characteristic {
   id: number;
   code: string;
   codeSystem: string;
@@ -6,4 +6,8 @@ export interface Characteristic {
   valueCodeSystem: string;
   displayName: string;
   type: string;
+
+  constructor(values: Object = {}) {
+    Object.assign(this, values);
+  }
 }

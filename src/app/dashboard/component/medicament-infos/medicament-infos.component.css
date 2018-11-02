@@ -30,3 +30,41 @@ tr:nth-child(even) {
 .example-margin {
   margin: 10px;
 }
+
+.title{
+  color: blue;
+}
+
+.example-small-box {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  margin: 16px;
+  padding: 16px;
+  padding-top: 40px;
+  border-radius: 8px;
+}
+
+.char-bool{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  margin: 6px;
+  padding: 6px;
+  padding-top: 6px;
+  border-radius: 8px;
+}
+
+.routes {
+  background-color:	#cad1d6;
+}
+
+.ingr {
+  background-color:	#a2f2ec;
+}
+
+.cellContainer {
+  width: 600px;
+  float: left;
+}
+

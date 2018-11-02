@@ -14,8 +14,6 @@ import { RootComponent } from './dashboard/root/root.component';
 import { LoginComponent } from './page/login/login.component';
 import { LockComponent } from './page/lock/lock.component';
 import { RegisterComponent } from './page/register/register.component';
-import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
-import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
 import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 
 const routes: Routes = [
@@ -30,8 +28,6 @@ const routes: Routes = [
       { path: 'notification', component: NotificationComponent },
       { path: 'alert', component: SweetAlertComponent },
       { path: 'settings', component: SettingsComponent },
-      { path: 'components/spl', component: SplCreatorComponent },
-      { path: 'components/splforms', component: SplFormsComponent },
       { path: 'components/medicament/:id', component: MedicamentInfosComponent }
     ]
   }

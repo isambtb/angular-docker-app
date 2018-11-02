@@ -1,8 +1,13 @@
 import { Characteristic } from "./characteristic.model";
 import { ContainerPackagedProduct } from "./containerPackagedProduct.model";
 
-export interface AsContent {
+export class AsContent {
   id: number;
   characteristics: Characteristic;
   containerPackagedProduct: ContainerPackagedProduct;
+
+  constructor(values: Object = {}) {
+    Object.assign(this, values);
+  }
+  
 }

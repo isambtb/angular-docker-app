@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
-import { MedicinalProduct} from '../models/medicinalProduct.model'
+//import { MedicinalProduct} from '../models/medicinalProduct.model'
 import { environment } from '../../../environments/environment';
 import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
+import { MedicinalProduct } from '../../core/model/MedicinalProduct';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class MedicinalProductService {
   constructor(
     private http: HttpClient,
   ) {}
 
 
-  get(id: number): Observable<any> {
-    return this.http.get(environment.api_url+ id)
-      .pipe(map(data => console.log(data)));
+  get(id: number): Observable<MedicinalProduct> {
+    return this.http.get<MedicinalProduct>(environment.api_url+ id);
   }
+  
 }

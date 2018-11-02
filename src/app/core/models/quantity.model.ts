@@ -1,4 +1,4 @@
-export interface Quantity {
+export class Quantity {
   id: number;
   nValue: string;
   nUnit: string;
@@ -6,4 +6,8 @@ export interface Quantity {
   dValue: string;
   dUnit: string;
   dDisplayName: string;
+
+  constructor(values: Object = {}) {
+    Object.assign(this, values);
+  }
 }

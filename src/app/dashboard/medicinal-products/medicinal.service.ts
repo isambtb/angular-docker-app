@@ -1,20 +1,20 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs/Observable";
-import { MedicinalProduct } from "./MedicinalProduct";
+import { MedicinalProduct } from "../../core/models/medicinalProduct.model";
 import "rxjs/add/operator/map";
 
 @Injectable({
   providedIn: "root"
 })
 export class MedicinalService {
-  private serviceUrl = "http://37.235.89.45:8080/api/medicinalProducts/pages";
+  private serviceUrl = "http://37.235.89.45:8080/api/medicinalProducts/";
 
   constructor(private http: HttpClient) {}
 
-  getUser(length: number, size: number): Observable<MedicinalProduct[]> {
+  getUser(): Observable<MedicinalProduct[]> {
     return this.http.get<MedicinalProduct[]>(
-      this.serviceUrl + "/" + length + "/" + 15
+      this.serviceUrl
     );
   }
 }

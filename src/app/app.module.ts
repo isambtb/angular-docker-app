@@ -45,8 +45,6 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { SettingsComponent } from './dashboard/settings/settings.component';
 
 import { SettingsService } from './services/settings.service';
-import { SplCreatorComponent } from './dashboard/component/spl-creator/spl-creator.component';
-import { SplFormsComponent } from './dashboard/component/spl-forms/spl-forms.component';
 import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicinalProductsComponent } from './dashboard/medicinal-products/medicinal-products.component';
@@ -71,8 +69,6 @@ import { MedicinalProductsComponent } from './dashboard/medicinal-products/medic
     HeaderComponent,
     FooterComponent,
     SettingsComponent,
-    SplCreatorComponent,
-    SplFormsComponent,
     MedicamentInfosComponent,
     MedicinalProductsComponent
   ],
