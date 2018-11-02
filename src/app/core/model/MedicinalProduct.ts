@@ -11,6 +11,7 @@ export interface MedicinalProduct {
 
 export interface AsContent {
   id: number;
+  quantity:Quantity;
   characteristics: Characteristic;
   containerPackagedProduct: ContainerPackagedProduct;
 }
@@ -35,8 +36,13 @@ export interface ContainerPackagedProduct {
   code: string;
   codeSystem: string;
   name: string;
+  asContentSub: AsContentSub;
 }
 
+export interface AsContentSub{
+  id: number;
+  quantity: Quantity;
+}
 export interface Ingredient {
   id: number;
   classCode: string;
@@ -47,7 +53,7 @@ export interface Ingredient {
 export interface Manufacturer {
   id: number;
   manufacturerCodeSystem: string;
-  manufacturerExtension: string;
+  manufacturerExtention: string;
   manufacturerName: string;
 }
 
