@@ -41,6 +41,7 @@ export interface ContainerPackagedProduct {
   asContentSub: AsContentSub;
   asSpecializedKinds: AsSpecializedKind[]
   valuedItems: ValuedItem[];
+  documents: Document[];
 }
 
 export interface AsContentSub {
