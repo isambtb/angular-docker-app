@@ -107,7 +107,7 @@ export interface ValuedItem {
   diplayName: string;
   effectiveTimeLow: string;
   effectiveTimeHeigh: string;
-  valuedUnitItemes: ValuedUnitItem[];
+  valuedUnitItems: ValuedUnitItem[];
 }
 
 export interface ValuedUnitItem {
