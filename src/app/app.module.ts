@@ -48,6 +48,7 @@ import { SettingsService } from './services/settings.service';
 import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MedicinalProductsComponent } from './dashboard/medicinal-products/medicinal-products.component';
+import { EditionComponent } from './dashboard/component/edition/edition.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { MedicinalProductsComponent } from './dashboard/medicinal-products/medic
     FooterComponent,
     SettingsComponent,
     MedicamentInfosComponent,
-    MedicinalProductsComponent
+    MedicinalProductsComponent,
+    EditionComponent
   ],
   imports: [
     BrowserModule,

@@ -23,12 +23,13 @@ const routes: Routes = [
   {
     path: 'dashboard', component: RootComponent, children: [
       { path: '', component: HomeComponent },
+      { path: 'medicinal-products/edit/:id', component: MedicamentInfosComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'table', component: MedicinalProductsComponent },
       { path: 'notification', component: NotificationComponent },
       { path: 'alert', component: SweetAlertComponent },
       { path: 'settings', component: SettingsComponent },
-      { path: 'components/medicament/:id', component: MedicamentInfosComponent }
+      { path: 'medicinal-products/details/:id', component: MedicamentInfosComponent }
     ]
   }
 ];

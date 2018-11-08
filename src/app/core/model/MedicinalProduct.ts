@@ -7,11 +7,12 @@ export interface MedicinalProduct {
   ingredients: Ingredient[];
   asContent: AsContent;
   consumedIn: ConsumedIn;
+  marketingAct: MarketingAct;
 }
 
 export interface AsContent {
   id: number;
-  quantity:Quantity;
+  quantity: Quantity;
   characteristics: Characteristic;
   containerPackagedProduct: ContainerPackagedProduct;
 }
@@ -36,10 +37,13 @@ export interface ContainerPackagedProduct {
   code: string;
   codeSystem: string;
   name: string;
+  formCode: FormCode;
   asContentSub: AsContentSub;
+  asSpecializedKinds: AsSpecializedKind[]
+  valuedItems: ValuedItem[];
 }
 
-export interface AsContentSub{
+export interface AsContentSub {
   id: number;
   quantity: Quantity;
 }
@@ -80,4 +84,72 @@ export interface Substance {
   codeSystem: string;
   name: string;
   descr: string;
+}
+
+export interface MarketingAct {
+  id: number;
+  statusCode: string;
+  codeSystem: string;
+  code: string;
+}
+
+export interface FormCode {
+  id: number;
+  codeSystem: string;
+  code: string;
+  displayName: string;
+}
+
+export interface ValuedItem {
+  id: number;
+  code: string;
+  codeSystem: string;
+  diplayName: string;
+  effectiveTimeLow: string;
+  effectiveTimeHeigh: string;
+  valuedUnitItemes: ValuedUnitItem[];
+}
+
+export interface ValuedUnitItem {
+  id: number;
+  code: string;
+  codeSystem: string;
+  currency: string;
+  value: string;
+  factorNumber: string;
+}
+
+export interface Document {
+  id: number;
+  code: string;
+  codeSystem: string;
+  title: string;
+  effectiveTimeLow: string;
+  characteristics: DocumentCharacteristic;
+}
+
+export interface DocumentCharacteristic {
+  id: number;
+  code: string;
+  codeSystem: string;
+  valueCode: string;
+  valueCodeSystem: string;
+  displayName: string;
+  type: string;
+  quantity: string;
+}
+
+export interface AsSpecializedKind {
+  id: number;
+  codeSystem: string;
+  code: string;
+  displayName: string;
+  generalizedMaterialKind: GeneralizedMaterialKind;
+}
+
+export interface GeneralizedMaterialKind {
+  id: number;
+  codeSystem: string;
+  code: string;
+  displayName: string;
 }
