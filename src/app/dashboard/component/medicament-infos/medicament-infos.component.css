@@ -55,6 +55,16 @@ tr:nth-child(even) {
   border-radius: 8px;
 }
 
+.char-none-bool{
+  height: 100px;
+  width: 100%;
+  margin: 16px;
+  padding: 16px;
+  padding-top: 5px;
+  border-radius: 8px;
+  background-color:	#cadee2;
+}
+
 .routes {
   background-color:	#cad1d6;
 }
@@ -64,7 +74,7 @@ tr:nth-child(even) {
 }
 
 .cellContainer {
-  width: 600px;
+  width: 500px;
   float: left;
 }
 
@@ -76,4 +86,38 @@ tr:nth-child(even) {
   padding-top: 40px;
   border-radius: 8px;
   background-color:	#cadee2;
+}
+
+.left{
+  float:left;
+  width:70%
+}
+
+.right{
+  float: right;
+  width: 30%;
+  margin-left: 5%;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+}
+
+.categories{
+  background-color: #e5dfe6;
+}
+
+mat-panel-title{
+  width: 30%;
+}
+
+button {
+  float: right;
+}
+
+p{
+  text-align: justify;
+  text-justify: inter-word;
+  color: black
 }
