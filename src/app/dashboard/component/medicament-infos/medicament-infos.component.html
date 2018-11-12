@@ -24,44 +24,44 @@
                 Medicinal Product infos</mat-card-title>
               <div class="header">
                 <mat-card class="left">
-                  <label>
+                  <h4>
                     <strong> Medicinal product Infohos Item Code: </strong>
                     {{ medicinalProduct?.code }}
-                  </label>
+                  </h4>
                   <br />
-                  <label>
+                  <h4>
                     <strong> Medicinal product Name: </strong>
                     {{ medicinalProduct?.medicinalProductName }}
-                  </label>
+                  </h4>
                   <br />
-                  <label>
+                  <h4>
                     <strong> System source: </strong>
                     {{ medicinalProduct?.codeSystem }}
-                  </label>
+                  </h4>
                 </mat-card>
                 <mat-divider [vertical]="true"></mat-divider>
                 <mat-card class="right">
                   <div class="content">
-                    <label>
+                    <h4>
                       <strong> {{medicinalProduct?.marketingAct.code}}: </strong>
                       {{medicinalProduct?.marketingAct.statusCode}}
-                    </label>
+                    </h4>
                     <br>
-                    <label>
+                    <h4>
                       <strong> System Source: </strong>
                       {{medicinalProduct?.marketingAct.codeSystem}}
-                    </label>
+                    </h4>
                     <br>
 
-                    <label *ngIf="medicinalProduct?.marketingAct.effectiveTimeLow != null">
+                    <h4 *ngIf="medicinalProduct?.marketingAct.effectiveTimeLow != null">
                       <strong> from: </strong>
                       {{medicinalProduct?.marketingAct.effectiveTimeLow}}
-                    </label>
+                    </h4>
                     <br>
-                    <label *ngIf="medicinalProduct?.marketingAct.effectiveTimeHeigh != null">
+                    <h4 *ngIf="medicinalProduct?.marketingAct.effectiveTimeHeigh != null">
                       <strong> to: </strong>
                       {{medicinalProduct?.marketingAct.effectiveTimeHeigh}}
-                    </label>
+                    </h4>
                     <br>
                   </div>
                 </mat-card>

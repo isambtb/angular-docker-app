@@ -92,6 +92,8 @@ export interface MarketingAct {
   statusCode: string;
   codeSystem: string;
   code: string;
+  effectiveTimeLow: string;
+  effectiveTimeHeigh: string;
 }
 
 export interface FormCode {
