@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule,  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routing } from './app.routes';
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
+import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+
 import {
   MatButtonModule,
   MatRadioModule,
@@ -81,6 +84,8 @@ import { EditionComponent } from './dashboard/component/edition/edition.componen
     HttpClientModule,
     HttpModule,
     routing,
+    ScrollToModule.forRoot(),
+    ScrollDispatchModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatRadioModule,
@@ -101,7 +106,7 @@ import { EditionComponent } from './dashboard/component/edition/edition.componen
     MatGridListModule,
     MatIconModule
   ],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [SettingsService],
   bootstrap: [AppComponent]
 })
