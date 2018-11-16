@@ -57,7 +57,7 @@ export class MedicinalProductsComponent implements OnInit {
 
   onClickView() {
     const m = new MedicinalProduct(this.selection.selected[0]);
-    this.router.navigate(["/dashboard/components/medicament/" + m.id]);
+    this.router.navigate(["/dashboard/medicinal-products/details/" + m.id]);
   }
   getRecord(row) {
     this.selectedRowIndex = row.id;
