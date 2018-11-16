@@ -16,7 +16,8 @@
                 <mat-card-title>
                   <h2>{{ medicinalProduct?.medicinalProductName }}</h2>
                 </mat-card-title>
-                <mat-card-subtitle>{{ medicinalProduct?.manufacturer?.manufacturerName }}
+                <mat-card-subtitle
+                  >{{ medicinalProduct?.manufacturer?.manufacturerName }}
                 </mat-card-subtitle>
               </div>
               <div class="right">
@@ -27,67 +28,259 @@
           <div class="infos">
             <mat-card class="my-card">
               <mat-card-title class="title">
-                Medicinal Product informations</mat-card-title>
-              <div class="">
-                <div class="example-small-box mat-elevation-z4 ingr">
-                  <h4>
-                    Infohos Item Code:
-                    <strong> {{ medicinalProduct?.code }}</strong>
-                  </h4>
-                  <br />
-                  <h4>
-                    Item Name:
-                    <strong> {{ medicinalProduct?.medicinalProductName }}</strong>
-                  </h4>
-                  <br/>
-                  <h4>
-                    System source:
-                    <strong> {{ medicinalProduct?.codeSystem }}</strong>
-                  </h4>
-                  <br>
-                  <h4>
-                    SAM Code:
-                    <strong> {{ medicinalProduct?.asContent.containerPackagedProduct?.code }}</strong>
-                  </h4>
-                  <br/>
-                  <h4>
-                    SAM Name:
-                    <strong> {{ medicinalProduct?.medicinalProductName }}</strong>
-                  </h4>
+                Medicinal Product informations</mat-card-title
+              >
+              <mat-card>
+                <div
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <ul *ngIf="characteristic.type == 'boolean'">
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_VALIDATED'"
+                    >
+                      <h4 class="cellContainer">Is Validate:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_FORMULARY'"
+                    >
+                      <h4 class="cellContainer">Is Formulary:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IN_USE'"
+                    >
+                      <h4 class="cellContainer">In Use:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+                  </ul>
                 </div>
-                <br>
-                <div class="example-small-box mat-elevation-z4 ingr">
-                  <div class="cellContainer">
-                    <h4>
-                      {{medicinalProduct?.marketingAct.code}}:
-                      <strong>{{medicinalProduct?.marketingAct.statusCode}}</strong>
-                    </h4>
-                  </div>
-                  <br>
-                  <div class="cellContainer">
-                    <h4>
-                      System Source:
-                      <strong> {{medicinalProduct?.marketingAct.codeSystem}}</strong>
-                    </h4>
-                  </div>
-                  <br>
-                  <div class="cellContainer">
-                    <h4 *ngIf="medicinalProduct?.marketingAct.effectiveTimeLow != null">
-                      <strong> from: </strong>
-                      {{medicinalProduct?.marketingAct.effectiveTimeLow}}
-                    </h4>
-                  </div>
-                  <br>
-                  <div class="cellContainer">
-                    <h4 *ngIf="medicinalProduct?.marketingAct.effectiveTimeHeigh != null">
-                      <strong> to: </strong>
-                      {{medicinalProduct?.marketingAct.effectiveTimeHeigh}}
-                    </h4>
-                  </div>
-                  <br>
-                </div>
-              </div>
+              </mat-card>
               <br />
+              <mat-card>
+                <div class="">
+                  <div class="example-small-box mat-elevation-z4 ingr">
+                    <div class="cellContainer">
+                      <h4>
+                        Infohos Item Code:
+                        <strong> {{ medicinalProduct?.code }}</strong>
+                      </h4>
+                    </div>
+                    <br />
+                    <div class="cellContainer">
+                      <h4>
+                        Item Name:
+                        <strong>
+                          {{ medicinalProduct?.medicinalProductName }}</strong
+                        >
+                      </h4>
+                    </div>
+                    <br />
+                    <div class="cellContainer">
+                      <h4>
+                        System source:
+                        <strong> {{ medicinalProduct?.codeSystem }}</strong>
+                      </h4>
+                    </div>
+                    <br />
+                  </div>
+                  <div class="example-small-box mat-elevation-z4 ingr">
+                    <div class="cellContainer">
+                      <h4>
+                        SAM Code:
+                        <strong>
+                          {{
+                            medicinalProduct?.asContent.containerPackagedProduct
+                              ?.code
+                          }}</strong
+                        >
+                      </h4>
+                    </div>
+                    <br />
+                    <div class="cellContainer">
+                      <h4>
+                        SAM Name:
+                        <strong>
+                          {{ medicinalProduct?.medicinalProductName }}</strong
+                        >
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="example-small-box mat-elevation-z4 ingr">
+                    <div class="cellContainer">
+                      <h4>
+                        {{ medicinalProduct?.marketingAct.code }}:
+                        <strong>{{
+                          medicinalProduct?.marketingAct.statusCode
+                        }}</strong>
+                      </h4>
+                    </div>
+                    <br />
+                    <div
+                      class="cellContainer"
+                      *ngIf="
+                        medicinalProduct?.marketingAct.effectiveTimeLow != null
+                      "
+                    >
+                      <h4>
+                        <strong> from: </strong>
+                        {{ medicinalProduct?.marketingAct.effectiveTimeLow }}
+                      </h4>
+                    </div>
+                    <br />
+                    <div
+                      class="cellContainer"
+                      *ngIf="
+                        medicinalProduct?.marketingAct.effectiveTimeHeigh !=
+                        null
+                      "
+                    >
+                      <h4>
+                        <strong> to: </strong>
+                        {{ medicinalProduct?.marketingAct.effectiveTimeHeigh }}
+                      </h4>
+                    </div>
+                    <br />
+                    <div class="cellContainer">
+                      <h4>
+                        System Source:
+                        <strong>
+                          {{
+                            medicinalProduct?.marketingAct.codeSystem
+                          }}</strong
+                        >
+                      </h4>
+                    </div>
+                    <br />
+                  </div>
+                </div>
+              </mat-card>
+              <br />
+              <mat-card>
+                <div
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <ul *ngIf="characteristic.type == 'boolean'">
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_MULTIDOSE'"
+                    >
+                      <h4 class="cellContainer">Is Multidose:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'ATTESTATION_REQUIRED'"
+                    >
+                      <h4 class="cellContainer">Attestation Required:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'PRESCRIPTION_REQUIRED'"
+                    >
+                      <h4 class="cellContainer">Prescription Required:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+                  </ul>
+                </div>
+              </mat-card>
+              <br />
+              <mat-card>
+                <div
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <ul *ngIf="characteristic.type == 'hyperlink'">
+                    <li  class="example-small-box mat-elevation-z4 ingr" *ngIf="characteristic.code == 'URL_SCIENTIFIC_LEAFLET'">
+                      <h4 class="cellContainer">
+                        Url Scientific Learlet:
+                      </h4>
+                      <h4 class="cellContainer">
+                          <a href="#"> {{ characteristic.valueCode }}</a>
+                      </h4>
+                    </li>
+
+                    <li  class="example-small-box mat-elevation-z4 ingr" *ngIf="characteristic.code == 'URL_PUBLIC_LEAFLET'">
+                      <h4 class="cellContainer">
+                        Url Publick Leaflet:
+                      </h4>
+                      <h4 class="cellContainer">
+                          <a href="#"> {{ characteristic.valueCode }}</a>
+                      </h4>
+                    </li>
+                  </ul>
+                </div>
+              </mat-card>
             </mat-card>
           </div>
           <br />
@@ -96,70 +289,81 @@
               <mat-card-title class="title">
                 Medicinal Product Classifications
               </mat-card-title>
-              <div *ngFor="
-                                          let kind of medicinalProduct?.asContent
-                                            ?.containerPackagedProduct?.asSpecializedKinds
-                                        ">
-                <div class="example-small-box mat-elevation-z4 ingr" *ngIf="kind.code == 'ATC'">
+              <div
+                *ngFor="
+                  let kind of medicinalProduct?.asContent
+                    ?.containerPackagedProduct?.asSpecializedKinds
+                "
+              >
+                <div
+                  class="example-small-box mat-elevation-z4 ingr"
+                  *ngIf="kind.code == 'ATC'"
+                >
                   <div class="cellContainer">
                     <h4>
                       ATC Code:
-                      <strong>{{ kind.generalizedMaterialKind.code }}
-                      </strong>
+                      <strong>{{ kind.generalizedMaterialKind.code }} </strong>
                     </h4>
                   </div>
                   <div class="cellContainer">
                     <h4>
                       ATC Name:
-                      <strong>{{ kind.generalizedMaterialKind.displayName }}
+                      <strong
+                        >{{ kind.generalizedMaterialKind.displayName }}
                       </strong>
                     </h4>
                   </div>
                   <div class="cellContainer">
                     <h4>
                       System source:
-                      <strong>{{ kind.generalizedMaterialKind.codeSystem }}
+                      <strong
+                        >{{ kind.generalizedMaterialKind.codeSystem }}
                       </strong>
                     </h4>
                   </div>
-
                 </div>
-                <div class="example-small-box mat-elevation-z4 ingr" *ngIf="kind.code == '1'">
+                <div
+                  class="example-small-box mat-elevation-z4 ingr"
+                  *ngIf="kind.code == '1'"
+                >
                   <div class="cellContainer">
                     <h4>
                       DC Code:
-                      <strong>{{ kind.generalizedMaterialKind.code }}
-                      </strong>
+                      <strong>{{ kind.generalizedMaterialKind.code }} </strong>
                     </h4>
                   </div>
                   <div class="cellContainer">
                     <h4>
                       DC Name:
-                      <strong> {{ kind.generalizedMaterialKind.displayName }}
+                      <strong>
+                        {{ kind.generalizedMaterialKind.displayName }}
                       </strong>
                     </h4>
                   </div>
                   <div class="cellContainer">
                     <h4>
                       System source:
-                      <strong>{{ kind.generalizedMaterialKind.codeSystem }}
+                      <strong
+                        >{{ kind.generalizedMaterialKind.codeSystem }}
                       </strong>
                     </h4>
                   </div>
                 </div>
-                <br>
-                <div class="example-small-box mat-elevation-z4 ingr" *ngIf="kind.code == '4'">
+                <div
+                  class="example-small-box mat-elevation-z4 ingr"
+                  *ngIf="kind.code == '4'"
+                >
                   <div class="cellContainer">
                     <h4>
                       ISO IDMP L4 Code:
-                      <strong>{{ kind.generalizedMaterialKind.code }}
-                      </strong>
+                      <strong>{{ kind.generalizedMaterialKind.code }} </strong>
                     </h4>
                   </div>
                   <div class="cellContainer">
                     <h4>
                       ISO IDMP L4 Name:
-                      <strong>{{ kind.generalizedMaterialKind.displayName }}
+                      <strong
+                        >{{ kind.generalizedMaterialKind.displayName }}
                       </strong>
                     </h4>
                   </div>
@@ -172,15 +376,19 @@
                     </h4>
                   </div>
                 </div>
-                <br>
               </div>
             </mat-card>
           </div>
           <br />
           <div class="ingredients">
             <mat-card class="my-card">
-              <mat-card-title class="title"> Active ingredients:</mat-card-title>
-              <div class="example-small-box mat-elevation-z4 ingr" *ngFor="let ingredient of medicinalProduct?.ingredients">
+              <mat-card-title class="title">
+                Active ingredients:</mat-card-title
+              >
+              <div
+                class="example-small-box mat-elevation-z4 ingr"
+                *ngFor="let ingredient of medicinalProduct?.ingredients"
+              >
                 <div class="cellContainer">
                   <h4>
                     Name:
@@ -191,7 +399,8 @@
                   <h4>
                     Strength:
                     <strong>
-                      {{ ingredient.quantity?.nValue }} {{ ingredient.quantity?.nDisplayName }}
+                      {{ ingredient.quantity?.nValue }}
+                      {{ ingredient.quantity?.nDisplayName }}
                     </strong>
                   </h4>
                   <br />
@@ -209,18 +418,20 @@
           <div class="routes">
             <mat-card class="my-card">
               <mat-card-title class="title">
-                Routes of administration:</mat-card-title>
-              <div class="example-small-box mat-elevation-z4 routes" *ngFor="let route of medicinalProduct?.consumedIn?.routes">
+                Routes of administration:</mat-card-title
+              >
+              <div
+                class="example-small-box mat-elevation-z4 routes"
+                *ngFor="let route of medicinalProduct?.consumedIn?.routes"
+              >
                 <div class="cellContainer">
                   <h4>
-                    Route:
-                    <strong> {{ route.displayName }} </strong>
+                    Route: <strong> {{ route.displayName }} </strong>
                   </h4>
                 </div>
                 <div class="cellContainer">
                   <h4>
-                    System source:
-                    <strong> {{ route.codeSystem }}</strong>
+                    System source: <strong> {{ route.codeSystem }}</strong>
                   </h4>
                 </div>
               </div>
@@ -229,33 +440,156 @@
           <br />
           <div class="units">
             <mat-card>
-              <mat-card-title class="title">
-                Units:</mat-card-title>
+              <mat-card-title class="title"> Units:</mat-card-title>
               <br />
               <h5>
                 Unit of presentation:
                 <strong>
-                  {{ medicinalProduct?.asContent.quantity.nValue }} {{ medicinalProduct?.asContent.quantity.nDisplayName }}
+                  {{ medicinalProduct?.asContent.quantity.nValue }}
+                  {{ medicinalProduct?.asContent.quantity.nDisplayName }}
                 </strong>
               </h5>
+              <mat-card>
+                <div
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <div *ngIf="characteristic.type == 'CD'">
+                    <div
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'PRESCRIPTION_UNIT'"
+                    >
+                      <div class="cellContainer">
+                        <h4>
+                          Prescription Unit:
+                          <strong>{{ characteristic.displayName }} </strong>
+                        </h4>
+                      </div>
+                      <div class="cellContainer">
+                        <h4>
+                          Source System:
+                          <strong>{{ characteristic.valueCodeSystem }} </strong>
+                        </h4>
+                      </div>
+                    </div>
+                    <div
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'DISPENSATION_UNIT'"
+                    >
+                      <div class="cellContainer">
+                        <h4>
+                          Dispensation Unit:
+                          <strong>{{ characteristic.displayName }} </strong>
+                        </h4>
+                      </div>
+                      <div class="cellContainer">
+                        <h4>
+                          Source System:
+                          <strong>{{ characteristic.valueCodeSystem }} </strong>
+                        </h4>
+                      </div>
+                    </div>
+                    <div
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'ADMINISTRATION_UNIT'"
+                    >
+                      <div class="cellContainer">
+                        <h4>
+                          Administration Unit:
+                          <strong>{{ characteristic.displayName }} </strong>
+                        </h4>
+                      </div>
+                      <div class="cellContainer">
+                        <h4>
+                          Source System:
+                          <strong>{{ characteristic.valueCodeSystem }} </strong>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card>
+              <br />
+              <mat-card>
+                <mat-header>
+                  <mat-title class="title">
+                    SAM unit of presentation
+                  </mat-title>
+                </mat-header>
+                <div
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <div *ngIf="characteristic.type == 'CD'">
+                    <div
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'BILLING_UNIT'"
+                    >
+                      <div class="cellContainer">
+                        <h4>
+                          Billing Unit:
+                          <strong>{{ characteristic.displayName }} </strong>
+                        </h4>
+                      </div>
+                      <div class="cellContainer">
+                        <h4>
+                          Source System:
+                          <strong>
+                            {{ characteristic.valueCodeSystem }}
+                          </strong>
+                        </h4>
+                      </div>
+                    </div>
+                    <div
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'PRESENTATION'"
+                    >
+                      <div class="cellContainer">
+                        <h4>
+                          Presentation Unit:
+                          <strong> {{ characteristic.displayName }} </strong>
+                        </h4>
+                      </div>
+                      <div class="cellContainer">
+                        <h4>
+                          Source System:
+                          <strong>
+                            {{ characteristic.valueCodeSystem }}
+                          </strong>
+                        </h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </mat-card>
             </mat-card>
           </div>
-          <br>
+          <br />
           <div class="prices">
             <mat-card>
               <mat-card-title class="title"> Prices:</mat-card-title>
               <h5>
                 System source:
                 <strong>
-                  {{ (medicinalProduct?.asContent.containerPackagedProduct ?.valuedItems)[0].codeSystem }}
+                  {{
+                    (medicinalProduct?.asContent.containerPackagedProduct
+                      ?.valuedItems)[0].codeSystem
+                  }}
                 </strong>
               </h5>
               <br />
               <div class="example-small-box mat-elevation-z4 routes">
-                <div class="cellContainer" *ngFor="
+                <div
+                  class="cellContainer"
+                  *ngFor="
                     let item of (medicinalProduct?.asContent
                       .containerPackagedProduct?.valuedItems)[0].valuedUnitItems
-                    ">
+                  "
+                >
                   <h4>
                     {{ item.code }}:
                     <strong>{{ item.value }} {{ item.currency }} </strong>
@@ -264,35 +598,41 @@
               </div>
             </mat-card>
           </div>
-          <br>
+          <br />
           <div class="packages">
             <mat-card>
-              <mat-card-title class="title">
-                Packages:</mat-card-title>
-              <div class="example-small-box mat-elevation-z4 ingr" *ngFor="
-                                          let contentSub of medicinalProduct?.asContent
-                                            ?.containerPackagedProduct?.asContentSub
-                                        ">
+              <mat-card-title class="title"> Packages:</mat-card-title>
+              <div
+                class="example-small-box mat-elevation-z4 ingr"
+                *ngFor="
+                  let contentSub of medicinalProduct?.asContent
+                    ?.containerPackagedProduct?.asContentSub
+                "
+              >
                 <div class="cellContainer">
                   <h4>
-                    <strong> CNK Code: </strong>{{ contentSub.containerPackagedProduct?.code }}
+                    <strong> CNK Code: </strong
+                    >{{ contentSub.containerPackagedProduct?.code }}
                   </h4>
                 </div>
                 <div class="cellContainer">
                   <h4>
-                    <strong> Name : </strong>{{ contentSub.containerPackagedProduct?.name }}
+                    <strong> Name : </strong
+                    >{{ contentSub.containerPackagedProduct?.name }}
                   </h4>
                 </div>
                 <div class="cellContainer">
                   <h4>
                     <strong> Quantity: </strong>
-                    {{ contentSub.quantity?.nValue }} {{ contentSub.quantity?.nDisplayName }}
+                    {{ contentSub.quantity?.nValue }}
+                    {{ contentSub.quantity?.nDisplayName }}
                   </h4>
                   <br />
                 </div>
                 <div class="cellContainer">
                   <h4>
-                    <strong> System source: </strong>{{ contentSub.containerPackagedProduct?.codeSystem }}
+                    <strong> System source: </strong
+                    >{{ contentSub.containerPackagedProduct?.codeSystem }}
                   </h4>
                 </div>
               </div>
@@ -302,10 +642,13 @@
           <div class="properties">
             <mat-card class="my-card">
               <mat-card-title class="title"> Properties:</mat-card-title>
-              <mat-card class="" *ngFor="
-                                              let document of medicinalProduct?.asContent
-                                                ?.containerPackagedProduct?.documents
-                                            ">
+              <mat-card
+                class=""
+                *ngFor="
+                  let document of medicinalProduct?.asContent
+                    ?.containerPackagedProduct?.documents
+                "
+              >
                 <div>
                   <h4>
                     Title:
@@ -315,8 +658,7 @@
                   </h4>
                   <br />
                   <h4>
-                    Code System:
-                    <strong>{{ document.codeSystem }}</strong>
+                    Code System: <strong>{{ document.codeSystem }}</strong>
                   </h4>
                   <br />
                   <h4>
@@ -327,11 +669,18 @@
                 </div>
                 <div class="example-small-box mat-elevation-z4 ingr">
                   <h4 class="cellContainer">Is valide for:</h4>
-                  <div class="cellContainer" *ngFor="let characteristic of document?.characteristics">
+                  <div
+                    class="cellContainer"
+                    *ngFor="let characteristic of document?.characteristics"
+                  >
                     <div>
                       <strong>{{ characteristic.displayName }}:</strong>
                       <mat-radio-group>
-                        <mat-radio-button class="example-margin" value="warn" [checked]="characteristic.quantity == 'true'">
+                        <mat-radio-button
+                          class="example-margin"
+                          value="warn"
+                          [checked]="characteristic.quantity == 'true'"
+                        >
                         </mat-radio-button>
                       </mat-radio-group>
                     </div>
@@ -343,107 +692,261 @@
           <br />
           <div class="snt-char">
             <mat-card>
-              <mat-card-header>
-                <mat-card-title class="title">
-                  snt-chars</mat-card-title>
-              </mat-card-header>
-              <div>
-                <ul>
-                  <div *ngFor="
-                  let characteristic of medicinalProduct?.asContent
-                    ?.characteristics
-                ">
-                    <li class="char-bool mat-elevation-z4" *ngIf="characteristic.type == 'boolean'">
-                      <div class="cellContainer">
-                        <h4>
-                          <strong> {{ characteristic.code }} </strong>
-                        </h4>
-                      </div>
-                      <br />
-                      <div class="cellContainer">
+              <mat-card-title class="title">
+                Snt characteristics:</mat-card-title
+              >
+              <mat-card>
+                <div
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <ul *ngIf="characteristic.type == 'CD'">
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'FORME_ADMINISTRATION'"
+                    >
+                      <h4 class="cellContainer">
+                        Forme Administration:
+                        <strong>{{ characteristic.displayName }}</strong>
+                      </h4>
+                      <h4 class="cellContainer">
+                        System Source:
+                        <strong>{{ characteristic.valueCodeSystem }}</strong>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'CONSERVATION'"
+                    >
+                      <h4 class="cellContainer">
+                        Conservation:
+                        <strong>{{ characteristic.displayName }}</strong>
+                      </h4>
+                      <h4 class="cellContainer">
+                        System Source:
+                        <strong>{{ characteristic.valueCodeSystem }}</strong>
+                      </h4>
+                    </li>
+
+                    <li *ngIf="characteristic.code == 'PRESCRIPTION_REQUIRED'">
+                      <h4>
+                        Prescription Required:
                         <mat-radio-group>
-                          <mat-radio-button class="example-margin" value="warn" [checked]="characteristic.valueCode == 'true'">
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
                           </mat-radio-button>
                         </mat-radio-group>
-                      </div>
-                      <br />
+                      </h4>
                     </li>
-                  </div>
+                  </ul>
+                </div>
+              </mat-card>
+              <br />
+              <mat-card>
+                <div
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <ul *ngIf="characteristic.type == 'boolean'">
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_SPECIALITY'"
+                    >
+                      <h4 class="cellContainer">Is Speciality:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
 
-                </ul>
-              </div>
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_NARCOTIC'"
+                    >
+                      <h4 class="cellContainer">Is Narcotic:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
 
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_SOLUBLE'"
+                    >
+                      <h4 class="cellContainer">Is Soluble:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_PERFUSION'"
+                    >
+                      <h4 class="cellContainer">Is Perfusion:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_WATER_SCALE'"
+                    >
+                      <h4 class="cellContainer">Is water Scale:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_PARTITIONABLE'"
+                    >
+                      <h4 class="cellContainer">Prescription Required:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_TRACEABLE'"
+                    >
+                      <h4 class="cellContainer">Is Traceable:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'EXT_MED_MGT'"
+                    >
+                      <h4 class="cellContainer">Ext Med Mgt:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+                    <li
+                      class="example-small-box mat-elevation-z4 ingr"
+                      *ngIf="characteristic.code == 'IS_FOREIGN'"
+                    >
+                      <h4 class="cellContainer">Is Foreign:</h4>
+                      <h4 class="cellContainer">
+                        <mat-radio-group>
+                          <mat-radio-button
+                            class="example-margin"
+                            value="warn"
+                            [checked]="characteristic.valueCode == 'true'"
+                          >
+                          </mat-radio-button>
+                        </mat-radio-group>
+                      </h4>
+                    </li>
+                  </ul>
+                </div>
+              </mat-card>
             </mat-card>
           </div>
-          <br>
+          <br />
           <div class="manufacturer">
             <mat-card class="my-card">
               <mat-card-title class="title">
-                Manufacturer Organization</mat-card-title>
+                Manufacturer Organization</mat-card-title
+              >
               <div class="">
                 <div class="example-small-box mat-elevation-z4 ingr">
                   <h4 class="cellContainer">
                     Name:
-                    <strong>{{ medicinalProduct?.manufacturer.manufacturerName }} </strong>
+                    <strong
+                      >{{ medicinalProduct?.manufacturer.manufacturerName }}
+                    </strong>
                   </h4>
                   <h4 class="cellContainer">
                     Identification Number:
-                    <strong> {{ medicinalProduct?.manufacturer.manufacturerExtention }}</strong>
+                    <strong>
+                      {{
+                        medicinalProduct?.manufacturer.manufacturerExtention
+                      }}</strong
+                    >
                   </h4>
                   <h4 class="cellContainer">
                     System source:
-                    <strong> {{ medicinalProduct?.manufacturer.manufacturerCodeSystem }}</strong>
+                    <strong>
+                      {{
+                        medicinalProduct?.manufacturer.manufacturerCodeSystem
+                      }}</strong
+                    >
                   </h4>
                 </div>
-                <br>
+                <br />
               </div>
               <br />
             </mat-card>
           </div>
-        </mat-card>
-      </div>
-      <div id="mp-characteristics" class="example-large-box mat-elevation-z4">
-        <mat-card>
-          <mat-card-title class="title">
-            Characteristics:
-          </mat-card-title>
-          <mat-accordion>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title> Characteristics </mat-panel-title>
-                <mat-panel-description> </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div>
-                <div *ngFor="
-                                        let characteristic of medicinalProduct?.asContent
-                                          ?.characteristics
-                                      ">
-                  <div class="mat-elevation-z4 char-none-bool" *ngIf="characteristic.type != 'boolean'">
-                    <div class="cellContainer">
-                      <h4>
-                        <strong> Value </strong>: {{ characteristic.valueCode }}
-                      </h4>
-                    </div>
-                    <div class="cellContainer">
-                      <h4>
-                        <strong> Type </strong>: {{ characteristic.type }}
-                      </h4>
-                    </div>
-                    <div class="cellContainer">
-                      <h4>
-                        <strong> Source System: </strong>: {{ characteristic.codeSystem }}
-                      </h4>
-                    </div>
-                    <div class="cellContainer">
-                      <h4>
-                        <strong> display Name: </strong>: {{ characteristic.displayName }}
-                      </h4>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </mat-expansion-panel>
-          </mat-accordion>
         </mat-card>
       </div>
     </div>
