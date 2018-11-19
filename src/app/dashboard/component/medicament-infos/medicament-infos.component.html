@@ -642,51 +642,55 @@
           <div class="properties">
             <mat-card class="my-card">
               <mat-card-title class="title"> Properties:</mat-card-title>
-              <mat-card
+              <div
                 class=""
                 *ngFor="
                   let document of medicinalProduct?.asContent
                     ?.containerPackagedProduct?.documents
                 "
               >
-                <div>
-                  <h4>
-                    Title:
-                    <p>
-                      <strong>{{ document.title }}</strong>
-                    </p>
-                  </h4>
-                  <br />
-                  <h4>
-                    Code System: <strong>{{ document.codeSystem }}</strong>
-                  </h4>
-                  <br />
-                  <h4>
-                    Effective Time Low:
-                    <strong>{{ document.effectiveTimeLow }} </strong>
-                  </h4>
-                  <br />
-                </div>
-                <div class="example-small-box mat-elevation-z4 ingr">
-                  <h4 class="cellContainer">Is valide for:</h4>
-                  <div
-                    class="cellContainer"
-                    *ngFor="let characteristic of document?.characteristics"
-                  >
+                <mat-card>
                     <div>
-                      <strong>{{ characteristic.displayName }}:</strong>
-                      <mat-radio-group>
-                        <mat-radio-button
-                          class="example-margin"
-                          value="warn"
-                          [checked]="characteristic.quantity == 'true'"
+                        <h4>
+                          Title:
+                          <p>
+                            <strong>{{ document.title }}</strong>
+                          </p>
+                        </h4>
+                        <br />
+                        <h4>
+                          Code System: <strong>{{ document.codeSystem }}</strong>
+                        </h4>
+                        <br />
+                        <h4>
+                          Effective Time Low:
+                          <strong>{{ document.effectiveTimeLow }} </strong>
+                        </h4>
+                        <br />
+                      </div>
+                      <div class="example-small-box mat-elevation-z4 ingr">
+                        <h4 class="cellContainer">Is valide for:</h4>
+                        <div
+                          class="cellContainer"
+                          *ngFor="let characteristic of document?.characteristics"
                         >
-                        </mat-radio-button>
-                      </mat-radio-group>
-                    </div>
-                  </div>
-                </div>
-              </mat-card>
+                          <div>
+                            <strong>{{ characteristic.displayName }}:</strong>
+                            <mat-radio-group>
+                              <mat-radio-button
+                                class="example-margin"
+                                value="warn"
+                                [checked]="characteristic.quantity == 'true'"
+                              >
+                              </mat-radio-button>
+                            </mat-radio-group>
+                          </div>
+                        </div>
+                      </div>
+                </mat-card>
+                <br>
+              </div>
+
             </mat-card>
           </div>
           <br />

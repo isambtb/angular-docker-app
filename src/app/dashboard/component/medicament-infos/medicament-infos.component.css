@@ -1,20 +1,31 @@
-
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+li {
+  display: inline;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+
+.title{
+  color: blue;
 }
+
+
+.routes {
+  background-color:	#cad1d6;
+}
+
+.ingr {
+  background-color:	#a2f2ec;
+}
+
+.categories{
+  background-color: #e5dfe6;
+}
+
 
 .example-h2 {
   margin: 10px;
@@ -31,10 +42,6 @@ tr:nth-child(even) {
   margin: 10px;
 }
 
-.title{
-  color: blue;
-}
-
 .example-small-box {
   height: 100px;
   width: 100%;
@@ -44,6 +51,41 @@ tr:nth-child(even) {
   padding-top: 40px;
   border-radius: 8px;
 }
+
+
+button {
+  float: right;
+}
+
+p{
+  text-align: justify;
+  text-justify: inter-word;
+  color: black
+}
+
+.left{
+  float:left;
+  width:70%
+}
+
+.right{
+  float: right;
+  width: 30%;
+  margin-left: 5%;
+}
+
+.header {
+  display: flex;
+  width: 100%;
+}
+
+
+
+mat-panel-title{
+  width: 30%;
+}
+
+
 
 .char-bool{
   height: 50px;
@@ -65,22 +107,16 @@ tr:nth-child(even) {
   background-color:	#cadee2;
 }
 
-.routes {
-  background-color:	#cad1d6;
-}
 
-.ingr {
-  background-color:	#a2f2ec;
-}
 
 .cellContainer {
-  width: 500px;
+  width: 33%;
   float: left;
 }
 
 .documents {
   height: 400px;
-  width: 100%;
+  width: 80%;
   margin: 16px;
   padding: 16px;
   padding-top: 40px;
@@ -88,54 +124,5 @@ tr:nth-child(even) {
   background-color:	#cadee2;
 }
 
-.left{
-  float:left;
-  width:70%
-}
 
-.right{
-  float: right;
-  width: 30%;
-  margin-left: 5%;
-}
 
-.header {
-  display: flex;
-  width: 100%;
-}
-
-.categories{
-  background-color: #e5dfe6;
-}
-
-mat-panel-title{
-  width: 30%;
-}
-
-button {
-  float: right;
-}
-
-p{
-  text-align: justify;
-  text-justify: inter-word;
-  color: black
-}
-
-.details-header {
-  margin-top: 50px;
-  width: 100%;
-  height:72px;
-  position: fixed;
-  position: -webkit-sticky;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  display: inline;
-}
