@@ -43,12 +43,11 @@ li {
 }
 
 .example-small-box {
-  height: 100px;
+  height: 60px;
   width: 100%;
   display: flex;
-  margin: 16px;
-  padding: 16px;
-  padding-top: 40px;
+  margin: 10px;
+  padding: 10px;
   border-radius: 8px;
 }
 
@@ -98,10 +97,10 @@ mat-panel-title{
 }
 
 .char-none-bool{
-  height: 100px;
+  height: 60px;
   width: 100%;
-  margin: 16px;
-  padding: 16px;
+  margin: 6px;
+  padding: 6px;
   padding-top: 5px;
   border-radius: 8px;
   background-color:	#cadee2;
@@ -125,4 +124,6 @@ mat-panel-title{
 }
 
 
-
+.col-md-5 {
+  margin-right: 5px;
+}
