@@ -121,24 +121,32 @@
                 </div>
               </section>
               <section class="container content routes">
-                <div class="row">
-                  <div class="col-md-6">
-                    <section>
-                      <div class="col-xs-4">
-                        SAM Code:
-                      </div>
-                      <div class="col-xs-4">
-                        <strong> {{ medicinalProduct?.asContent.containerPackagedProduct ?.code }} </strong>
+                  <section class="container content routes">
+                      <div class="row">
+                        <div class="col-md-2"> SAM Name:</div>
+                        <div class="col-md-10">
+                          <strong> {{ medicinalProduct?.asContent.containerPackagedProduct?.name }}</strong>
+                        </div>
                       </div>
                     </section>
-                  </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <section>
+                          <div class="col-xs-4">
+                            SAM Code:
+                          </div>
+                          <div class="col-xs-6">
+                            <strong> {{ medicinalProduct?.asContent.containerPackagedProduct?.code }}</strong>
+                          </div>
+                        </section>
+                      </div>
                   <div class="col-md-6">
                     <section>
                       <div class="col-xs-4">
-                        SAM Name:
+                        System Source:
                       </div>
-                      <div class="col-xs-6">
-                        <strong> {{ medicinalProduct?.medicinalProductName }}</strong>
+                      <div class="col-xs-4">
+                        <strong> {{ medicinalProduct?.asContent.containerPackagedProduct?.codeSystem }} </strong>
                       </div>
                     </section>
                   </div>
