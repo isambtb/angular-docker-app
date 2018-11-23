@@ -6,6 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { routing } from './app.routes';
 import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 import { ScrollDispatchModule } from '@angular/cdk/scrolling';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import {
   MatButtonModule,
@@ -104,7 +105,8 @@ import { EditionComponent } from './dashboard/component/edition/edition.componen
     MatExpansionModule,
     MatTreeModule,
     MatGridListModule,
-    MatIconModule
+    MatIconModule, 
+    AngularSvgIconModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [SettingsService],
