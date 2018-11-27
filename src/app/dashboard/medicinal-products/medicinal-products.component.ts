@@ -20,7 +20,7 @@ export class MedicinalProductsComponent implements OnInit {
     "code",
     "codeSystem",
     "medicinalProductName",
-    "manufacturer"
+    "isValidated"
   ];
 
   tableLength: number = 0;

@@ -8,6 +8,7 @@ export class MedicinalProduct {
   code: string;
   codeSystem: string;
   medicinalProductName: string;
+  validated: string;
   manufacturer: Manufacturer;
   ingredients: Ingredient[];
   asContent: AsContent;
