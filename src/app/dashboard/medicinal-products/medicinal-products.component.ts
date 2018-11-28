@@ -67,4 +67,9 @@ export class MedicinalProductsComponent implements OnInit {
   highlight(row) {
     this.selectedRowIndex = row.id;
   }
+
+  onClickCompareVersions(){
+    const m = new MedicinalProduct(this.selection.selected[0]);
+    this.router.navigate(["/dashboard/medicinal-products/compare-versions/" + m.id]);
+  }
 }

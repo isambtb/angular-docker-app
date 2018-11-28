@@ -5,7 +5,6 @@ export const ROUTES = [
     { path: 'table', title: 'Medicament List', icon: 'content_paste', children: null },
     {
         path: '#component', id: 'component', title: 'Medicaments management', icon: 'apps', children: [
-            { path: 'components/splforms', title: 'Add medicament', icon: 'A' },
             { path: 'components/spl', title: 'Search', icon: 'S' },
             { path: 'components/medicament', title: 'Detail', icon: 'i' },
         ]

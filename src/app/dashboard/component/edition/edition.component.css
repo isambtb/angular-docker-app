@@ -1,0 +1,142 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    display: inline;
+  }
+  
+  
+  .title{
+    color: blue;
+  }
+  
+  
+  .routes {
+    background-color:	#cad1d6;
+  }
+  
+  .ingr {
+    background-color:	#a2f2ec;
+  }
+  
+  .categories{
+    background-color: #e5dfe6;
+  }
+  
+  
+  .example-h2 {
+    margin: 10px;
+  }
+  
+  .example-section {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .example-margin {
+    margin: 10px;
+  }
+  
+  .example-small-box {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  
+  button {
+    float: right;
+  }
+  
+  p{
+    text-align: justify;
+    text-justify: inter-word;
+    color: black
+  }
+  
+  .left{
+    float:left;
+    width:70%
+  }
+  
+  .right{
+    float: right;
+    width: 30%;
+    margin-left: 5%;
+  }
+  
+  .header {
+    display: flex;
+    width: 100%;
+  }
+  
+  
+  
+  mat-panel-title{
+    width: 30%;
+  }
+  
+  
+  
+  .char-bool{
+    height: 50px;
+    width: 100%;
+    display: flex;
+    margin: 6px;
+    padding: 6px;
+    padding-top: 6px;
+    border-radius: 8px;
+  }
+  
+  .char-none-bool{
+    height: 60px;
+    width: 100%;
+    margin: 6px;
+    padding: 6px;
+    padding-top: 5px;
+    border-radius: 8px;
+    background-color:	#cadee2;
+  }
+  
+  
+  
+  .cellContainer {
+    width: 33%;
+    float: left;
+  }
+  
+  .documents {
+    height: 400px;
+    width: 80%;
+    margin: 16px;
+    padding: 16px;
+    padding-top: 40px;
+    border-radius: 8px;
+    background-color:	#cadee2;
+  }
+  
+  
+  .col-md-5 {
+    margin-right: 5px;
+  }
+  .mat-card.scrollable-content {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  
+    > .mat-card-title-group {
+      display: block;
+    }
+  
+    > .mat-card-content {
+      overflow-y: auto;
+    }
+  }
