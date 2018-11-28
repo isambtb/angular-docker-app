@@ -2,6 +2,7 @@ export interface MedicinalProduct {
   id: number;
   code: string;
   codeSystem: string;
+  validated:boolean;
   medicinalProductName: string;
   manufacturer: Manufacturer;
   ingredients: Ingredient[];
