@@ -13,6 +13,12 @@ li {
   color: blue;
 }
 
+.main-title{
+  color: blue;
+  margin-top:auto;
+    margin-bottom:auto;
+    text-align:center;
+}
 
 .routes {
   background-color:	#cad1d6;
