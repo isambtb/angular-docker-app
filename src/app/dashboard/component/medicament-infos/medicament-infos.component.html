@@ -24,12 +24,8 @@
                 </div>
                 <div class="row">
                   <div class="col-md-4">validation date: DD-MM-YYYY</div>
-                  <div class="col-md-4">
-                    validated by: XXXXXx
-                  </div>
-                  <div class="col-md-4">
-                    Version Number: xx
-                  </div>
+                  <div class="col-md-4">validated by: XXXXXx</div>
+                  <div class="col-md-4">Version Number: xx</div>
                 </div>
               </div>
             </div>
@@ -52,7 +48,7 @@
                 <div>
                   <section class="container content">
                     <div class="row">
-                      <div class="col-md-4">
+                      <mat-card class="col-md-4">
                         <div
                           *ngFor="
                             let characteristic of medicinalProduct?.asContent
@@ -60,9 +56,7 @@
                           "
                         >
                           <div *ngIf="characteristic.type == 'boolean'">
-                            <mat-card
-                              *ngIf="characteristic.code == 'IS_FORMULARY'"
-                            >
+                            <div *ngIf="characteristic.code == 'IS_FORMULARY'">
                               <section>
                                 <div class="row">
                                   <div class="col-xs-6">Is Formulary:</div>
@@ -79,11 +73,11 @@
                                   </div>
                                 </div>
                               </section>
-                            </mat-card>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-md-4">
+                      </mat-card>
+                      <mat-card class="col-md-4">
                         <div
                           *ngFor="
                             let characteristic of medicinalProduct?.asContent
@@ -91,7 +85,7 @@
                           "
                         >
                           <div *ngIf="characteristic.type == 'boolean'">
-                            <mat-card *ngIf="characteristic.code == 'IN_USE'">
+                            <div *ngIf="characteristic.code == 'IN_USE'">
                               <section>
                                 <div class="row">
                                   <div class="col-xs-6">In Use:</div>
@@ -108,14 +102,19 @@
                                   </div>
                                 </div>
                               </section>
-                            </mat-card>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div>
-                          <div>
-                            <mat-card>
+                      </mat-card>
+                      <mat-card class="col-md-4">
+                        <div
+                          *ngFor="
+                            let characteristic of medicinalProduct?.asContent
+                              ?.characteristics
+                          "
+                        >
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IN_USE'">
                               <section>
                                 <div class="row">
                                   <div class="col-xs-6">Is Validated:</div>
@@ -124,7 +123,7 @@
                                       <mat-radio-button
                                         value="warn"
                                         [checked]="
-                                          medicinalProduct?.validated == true
+                                          characteristic.valueCode == 'true'
                                         "
                                       >
                                       </mat-radio-button>
@@ -132,12 +131,13 @@
                                   </div>
                                 </div>
                               </section>
-                            </mat-card>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </mat-card>
                     </div>
                   </section>
+                  <!-- infos -->
                   <section class="container content ingr">
                     <div class="row">
                       <div class="col-md-2">Item Name:</div>
@@ -151,14 +151,12 @@
                   <section class="container content ingr">
                     <div class="row">
                       <div class="col-md-8">
-                        <section>
-                          <div class="row">
-                            <div class="col-xs-4">Infohos Item Code:</div>
-                            <div class="col-xs-6">
-                              <strong> {{ medicinalProduct?.code }}</strong>
-                            </div>
+                        <div class="row">
+                          <div class="col-md-3">Infohos Item Code:</div>
+                          <div class="col-md-4">
+                            <strong> {{ medicinalProduct?.code }}</strong>
                           </div>
-                        </section>
+                        </div>
                       </div>
                       <div class="col-md-4">
                         <section>
@@ -175,24 +173,24 @@
                     </div>
                   </section>
                   <section class="container content routes">
-                    <section class="container content routes">
-                      <div class="row">
-                        <div class="col-md-2">SAM Name:</div>
-                        <div class="col-md-10">
-                          <strong>
-                            {{
-                              medicinalProduct?.asContent
-                                .containerPackagedProduct?.name
-                            }}</strong
-                          >
-                        </div>
+                    <div class="row">
+                      <div class="col-md-2">SAM Name:</div>
+                      <div class="col-md-10">
+                        <strong>
+                          {{
+                            medicinalProduct?.asContent.containerPackagedProduct
+                              ?.name
+                          }}</strong
+                        >
                       </div>
-                    </section>
+                    </div>
+                  </section>
+                  <section class="container content routes">
                     <div class="row">
                       <div class="col-md-8">
-                        <section>
-                          <div class="col-xs-4">SAM Code:</div>
-                          <div class="col-xs-6">
+                        <div class="row">
+                          <div class="col-md-3">SAM Code:</div>
+                          <div class="col-md-4">
                             <strong>
                               {{
                                 medicinalProduct?.asContent
@@ -200,7 +198,7 @@
                               }}</strong
                             >
                           </div>
-                        </section>
+                        </div>
                       </div>
                       <div class="col-md-4">
                         <section>
@@ -211,18 +209,19 @@
                                 {{
                                   medicinalProduct?.asContent
                                     .containerPackagedProduct?.codeSystem
-                                }}
-                              </strong>
+                                }}</strong
+                              >
                             </div>
                           </div>
                         </section>
                       </div>
                     </div>
                   </section>
+                  <!-- Etat -->
                   <section class="container content ingr">
                     <div class="row">
                       <div class="col-md-2">Etat</div>
-                      <div>
+                      <div class="col-md-10">
                         <strong
                           >{{ medicinalProduct?.marketingAct.statusCode }}
                         </strong>
@@ -231,42 +230,33 @@
                   </section>
                   <section class="container content ingr">
                     <div class="row">
-                      <div
-                        class="col-md-4"
-                        class="col-md-2"
-                        *ngIf="
-                          medicinalProduct?.marketingAct.effectiveTimeLow !=
-                          null
-                        "
-                      >
-                        <div class="col-xs-4">From:</div>
-                        <div class="col-xs-4">
+                      <div class="col-md-4">
+                        <div>
+                          From:
                           <strong>{{
                             medicinalProduct?.marketingAct.effectiveTimeLow
                           }}</strong>
                         </div>
                       </div>
-                      <div
-                        class="col-md-4"
-                        *ngIf="
-                          medicinalProduct?.marketingAct.effectiveTimeHeigh !=
-                          null
-                        "
-                      >
-                        <div class="col-xs-4">To:</div>
-                        <div class="col-xs-4">
-                          <strong>{{
-                            medicinalProduct?.marketingAct.effectiveTimeHeigh
-                          }}</strong>
-                        </div>
-                      </div>
-                      <div class="col-md-6">
+                      <div class="col-md-4">
                         <section>
-                          <div class="col-xs-4">System Source:</div>
-                          <div class="col-xs-6">
-                            <strong>
-                              {{ medicinalProduct?.marketingAct.codeSystem }}
-                            </strong>
+                          <div class="col-md-2">To:</div>
+                          <div class="col-md-2">
+                            <strong>{{
+                              medicinalProduct?.marketingAct.effectiveTimeHeigh
+                            }}</strong>
+                          </div>
+                        </section>
+                      </div>
+                      <div class="col-md-4">
+                        <section>
+                          <div class="row">
+                            <div class="col-xs-4">System Source:</div>
+                            <div class="col-xs-6">
+                              <strong>{{
+                                medicinalProduct?.marketingAct.codeSystem
+                              }}</strong>
+                            </div>
                           </div>
                         </section>
                       </div>
@@ -274,109 +264,65 @@
                   </section>
                   <br />
                   <section class="container content">
-                    <div class="row">
-                      <div class="col-md-4">
-                        <div
-                          *ngFor="
-                            let characteristic of medicinalProduct?.asContent
-                              ?.characteristics
-                          "
-                        >
-                          <div *ngIf="characteristic.type == 'boolean'">
-                            <mat-card
-                              *ngIf="characteristic.code == 'IS_FORFAIT'"
-                            >
-                              <section>
-                                <div class="row">
-                                  <div class="col-xs-6">Is Forfait:</div>
-                                  <div class="col-xs-6">
-                                    <mat-radio-group>
-                                      <mat-radio-button
-                                        value="warn"
-                                        [checked]="
-                                          characteristic.valueCode == 'true'
-                                        "
-                                      >
-                                      </mat-radio-button>
-                                    </mat-radio-group>
+                      <div class="row">
+                        <mat-card class="col-md-4">
+                          <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                            <div *ngIf="characteristic.type == 'boolean'">
+                              <div *ngIf="characteristic.code == 'IS_FORFAIT'">
+                                <section>
+                                  <div class="row">
+                                    <div class="col-xs-6"> Is Forfait:</div>
+                                    <div class="col-xs-6">
+                                      <mat-radio-group>
+                                        <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                        </mat-radio-button>
+                                      </mat-radio-group>
+                                    </div>
                                   </div>
-                                </div>
-                              </section>
-                            </mat-card>
+                                </section>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div
-                          *ngFor="
-                            let characteristic of medicinalProduct?.asContent
-                              ?.characteristics
-                          "
-                        >
-                          <div *ngIf="characteristic.type == 'boolean'">
-                            <mat-card
-                              *ngIf="
-                                characteristic.code == 'ATTESTATION_REQUIRED'
-                              "
-                            >
-                              <section>
-                                <div class="row">
-                                  <div class="col-xs-6">
-                                    Attestation Required:
+                        </mat-card>
+                        <mat-card class="col-md-4">
+                          <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                            <div *ngIf="characteristic.type == 'boolean'">
+                              <div *ngIf="characteristic.code == 'ATTESTATION_REQUIRED'">
+                                <section>
+                                  <div class="row">
+                                    <div class="col-xs-6">Attestation Required: </div>
+                                    <div class="col-xs-6">
+                                      <mat-radio-group>
+                                        <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                        </mat-radio-button>
+                                      </mat-radio-group>
+                                    </div>
                                   </div>
-                                  <div class="col-xs-6">
-                                    <mat-radio-group>
-                                      <mat-radio-button
-                                        value="warn"
-                                        [checked]="
-                                          characteristic.valueCode == 'true'
-                                        "
-                                      >
-                                      </mat-radio-button>
-                                    </mat-radio-group>
-                                  </div>
-                                </div>
-                              </section>
-                            </mat-card>
+                                </section>
+                              </div>
+                            </div>
                           </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div
-                          *ngFor="
-                            let characteristic of medicinalProduct?.asContent
-                              ?.characteristics
-                          "
-                        >
-                          <div *ngIf="characteristic.type == 'boolean'">
-                            <mat-card
-                              *ngIf="
-                                characteristic.code == 'PRESCRIPTION_REQUIRED'
-                              "
-                            >
-                              <section>
-                                <div class="row">
-                                  <div class="col-xs-6">
-                                    Prescription Required:
+                        </mat-card>
+                        <mat-card class="col-md-4">
+                          <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                            <div *ngIf="characteristic.type == 'boolean'">
+                              <div *ngIf="characteristic.code == 'PRESCRIPTION_REQUIRED'">
+                                <section>
+                                  <div class="row">
+                                    <div class="col-xs-6">Prescription Required: </div>
+                                    <div class="col-xs-6">
+                                      <mat-radio-group>
+                                        <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                        </mat-radio-button>
+                                      </mat-radio-group>
+                                    </div>
                                   </div>
-                                  <div class="col-xs-6">
-                                    <mat-radio-group>
-                                      <mat-radio-button
-                                        value="warn"
-                                        [checked]="
-                                          characteristic.valueCode == 'true'
-                                        "
-                                      >
-                                      </mat-radio-button>
-                                    </mat-radio-group>
-                                  </div>
-                                </div>
-                              </section>
-                            </mat-card>
+                                </section>
+                              </div>
+                            </div>
                           </div>
-                        </div>
+                        </mat-card>
                       </div>
-                    </div>
                   </section>
                   <br />
                   <section class="container content">
@@ -469,8 +415,8 @@
                 <mat-card-title class="container content title">
                   Medicinal Product Classifications
                 </mat-card-title>
-                <section
-                  class="container content"
+                <div
+                  class=""
                   *ngFor="
                     let kind of medicinalProduct?.asContent
                       ?.containerPackagedProduct?.asSpecializedKinds
@@ -479,19 +425,21 @@
                   <div *ngIf="kind.code == 'ATC'">
                     <section class="content container ingr">
                       <div class="row">
-                        ATC Name:
-                        <strong
-                          >{{ kind.generalizedMaterialKind.displayName }}
-                        </strong>
+                        <div class="col-md-2">
+                            ATC Name:
+                        </div>
+                        <div class="col-md-10">
+                            <strong>{{ kind.generalizedMaterialKind.displayName }}</strong>
+                        </div>
                       </div>
                     </section>
                     <section class="content container ingr">
                       <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-2">
                           ATC Code:
-                          <strong
-                            >{{ kind.generalizedMaterialKind.code }}
-                          </strong>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>{{ kind.generalizedMaterialKind.code }}</strong>
                         </div>
                         <div class="col-md-4">
                           System source:
@@ -502,22 +450,33 @@
                       </div>
                     </section>
                   </div>
+                </div>
+                <br>
+                <div
+                  class=""
+                  *ngFor="
+                    let kind of medicinalProduct?.asContent
+                      ?.containerPackagedProduct?.asSpecializedKinds
+                  "
+                >
                   <div *ngIf="kind.code == '1'">
                     <section class="container content ingr">
                       <div class="row">
-                        DC Name:
-                        <strong>
-                          {{ kind.generalizedMaterialKind.displayName }}
-                        </strong>
+                          <div class="col-md-2">
+                              DC Name:
+                          </div>
+                          <div class="col-md-8">
+                              <strong>{{ kind.generalizedMaterialKind.displayName }}</strong>
+                          </div>
                       </div>
                     </section>
                     <section class="container content ingr">
                       <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-2">
                           DC Code:
-                          <strong
-                            >{{ kind.generalizedMaterialKind.code }}
-                          </strong>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>{{ kind.generalizedMaterialKind.code }}</strong>
                         </div>
                         <div class="col-md-4">
                           System source:
@@ -528,33 +487,44 @@
                       </div>
                     </section>
                   </div>
+                </div>
+                <br>
+                <div
+                  class=""
+                  *ngFor="
+                    let kind of medicinalProduct?.asContent
+                      ?.containerPackagedProduct?.asSpecializedKinds
+                  "
+                >
                   <div *ngIf="kind.code == '4'">
-                    <section class=" container content ingr">
+                    <section class="container content ingr">
                       <div class="row">
-                        ISO IDMP L4 Name:
-                        <strong
-                          >{{ kind.generalizedMaterialKind.displayName }}
-                        </strong>
+                          <div class="col-md-2">
+                              ISO IDMP L4 Name:
+                          </div>
+                          <div class="col-md-8">
+                              <strong>{{ kind.generalizedMaterialKind.displayName }}</strong>
+                          </div>
                       </div>
                     </section>
                     <section class="container content ingr">
                       <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-2">
                           ISO IDMP L4 Code:
-                          <strong
-                            >{{ kind.generalizedMaterialKind.code }}
-                          </strong>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>{{ kind.generalizedMaterialKind.code }}</strong>
                         </div>
                         <div class="col-md-4">
                           System source:
-                          <strong>
-                            {{ kind.generalizedMaterialKind.codeSystem }}
+                          <strong
+                            >{{ kind.generalizedMaterialKind.codeSystem }}
                           </strong>
                         </div>
                       </div>
                     </section>
                   </div>
-                </section>
+                </div>
               </mat-card>
             </div>
             <br />
@@ -598,214 +568,193 @@
                       {{ medicinalProduct?.asContent.quantity.nDisplayName }}
                     </strong>
                   </h5>
-                  <mat-card>
-                    <section
-                      *ngFor="
-                        let characteristic of medicinalProduct?.asContent
-                          ?.characteristics
-                      "
-                    >
-                      <div class="row" *ngIf="characteristic.type == 'CD'">
-                        <section
-                          class="container content"
-                          *ngIf="characteristic.code == 'PRESENTATION'"
-                        >
-                          <div class="row">
-                            <section class="container content ingr">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  Presentation Unit:
+                  <section
+                    *ngFor="
+                      let characteristic of medicinalProduct?.asContent
+                        ?.characteristics
+                    "
+                  >
+                    <div class="row" *ngIf="characteristic.type == 'CD'">
+                      <section
+                        class="container content"
+                        *ngIf="characteristic.code == 'PRESENTATION'"
+                      >
+                        <div class="row">
+                          <section class="container content ingr">
+                            <div class="row">
+                              <div class="col-md-2">
+                                Presentation Unit:
+                              </div>
+                              <div class="col-md-6">
                                   <strong>
-                                    {{ characteristic.displayName }}
-                                  </strong>
-                                </div>
-                                <div class="col-md-4">
-                                  Source System:
-                                  <strong>
-                                    {{ characteristic.valueCodeSystem }}
-                                  </strong>
-                                </div>
+                                      {{ characteristic.displayName }}
+                                    </strong>
                               </div>
-                            </section>
-                          </div>
-                        </section>
-                      </div>
-                    </section>
-                    <section
-                      *ngFor="
-                        let characteristic of medicinalProduct?.asContent
-                          ?.characteristics
-                      "
-                    >
-                      <div class="row" *ngIf="characteristic.type == 'CD'">
-                        <section
-                          class="container content"
-                          *ngIf="characteristic.code == 'PRESCRIPTION_UNIT'"
-                        >
-                          <div class="row">
-                            <section class="container content ingr">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  Prescription Unit:
-                                  <strong
-                                    >{{ characteristic.displayName }}
-                                  </strong>
-                                </div>
-                                <div class="col-md-4">
-                                  Source System:
-                                  <strong
-                                    >{{ characteristic.valueCodeSystem }}
-                                  </strong>
-                                </div>
+                              <div class="col-md-4">
+                                Source System:
+                                <strong>
+                                  {{ characteristic.valueCodeSystem }}
+                                </strong>
                               </div>
-                            </section>
-                          </div>
-                        </section>
-                      </div>
-                    </section>
-                    <section
-                      *ngFor="
-                        let characteristic of medicinalProduct?.asContent
-                          ?.characteristics
-                      "
-                    >
-                      <div class="row" *ngIf="characteristic.type == 'CD'">
-                        <section
-                          class="container content"
-                          *ngIf="characteristic.code == 'DISPENSATION_UNIT'"
-                        >
-                          <div class="row">
-                            <section class="container content ingr">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  Dispensation Unit:
-                                  <strong
-                                    >{{ characteristic.displayName }}
-                                  </strong>
-                                </div>
-                                <div class="col-md-4">
-                                  Source System:
-                                  <strong
-                                    >{{ characteristic.valueCodeSystem }}
-                                  </strong>
-                                </div>
+                            </div>
+                          </section>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                  <section
+                    *ngFor="
+                      let characteristic of medicinalProduct?.asContent
+                        ?.characteristics
+                    "
+                  >
+                    <div class="row" *ngIf="characteristic.type == 'CD'">
+                      <section
+                        class="container content"
+                        *ngIf="characteristic.code == 'PRESCRIPTION_UNIT'"
+                      >
+                        <div class="row">
+                          <section class="container content ingr">
+                            <div class="row">
+                              <div class="col-md-2">
+                                Prescription Unit:
                               </div>
-                            </section>
-                          </div>
-                        </section>
-                      </div>
-                    </section>
-                    <!-- addminstration unit -->
-                    <section
-                      *ngFor="
-                        let characteristic of medicinalProduct?.asContent
-                          ?.characteristics
-                      "
-                    >
-                      <div class="row" *ngIf="characteristic.type == 'CD'">
-                        <section
-                          class="container content"
-                          *ngIf="characteristic.code == 'ADMINISTRATION_UNIT'"
-                        >
-                          <div class="row">
-                            <section class="container content ingr">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  Administration Unit:
-                                  <strong
-                                    >{{ characteristic.displayName }}
-                                  </strong>
-                                </div>
-                                <div class="col-md-4">
-                                  Source System:
-                                  <strong
-                                    >{{ characteristic.valueCodeSystem }}
-                                  </strong>
-                                </div>
+                              <div class="col-md-6">
+                                  <strong >{{ characteristic.displayName }}</strong>
                               </div>
-                            </section>
-                          </div>
-                        </section>
-                      </div>
-                    </section>
-                    <!-- administration form -->
+                              <div class="col-md-4">
+                                Source System:
+                                <strong
+                                  >{{ characteristic.valueCodeSystem }}
+                                </strong>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                  <section
+                    *ngFor="
+                      let characteristic of medicinalProduct?.asContent
+                        ?.characteristics
+                    "
+                  >
+                    <div class="row" *ngIf="characteristic.type == 'CD'">
+                      <section
+                        class="container content"
+                        *ngIf="characteristic.code == 'DISPENSATION_UNIT'"
+                      >
+                        <div class="row">
+                          <section class="container content ingr">
+                            <div class="row">
+                              <div class="col-md-2">
+                                Dispensation Unit:
+                              </div>
+                              <div class="col-md-6">
+                                  <strong>{{ characteristic.displayName }}</strong>
+                              </div>
+                              <div class="col-md-4">
+                                  Source System:<strong>{{ characteristic.valueCodeSystem }}</strong>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </section>
+                    </div>
+                  </section>
+                  <!-- addminstration unit -->
+                  <section
+                  *ngFor="
+                    let characteristic of medicinalProduct?.asContent
+                      ?.characteristics
+                  "
+                >
+                  <div class="row" *ngIf="characteristic.type == 'CD'">
                     <section
-                      *ngFor="
-                        let characteristic of medicinalProduct?.asContent
-                          ?.characteristics
-                      "
+                      class="container content"
+                      *ngIf="characteristic.code == 'ADMINISTRATION_UNIT'"
                     >
-                      <div class="row" *ngIf="characteristic.type == 'CD'">
-                        <section
-                          class="container content ingr"
-                          *ngIf="characteristic.code == 'FORME_ADMINISTRATION'"
-                        >
+                      <div class="row">
+                        <section class="container content ingr">
                           <div class="row">
-                            <div class="col-md-8">
-                              Administration Form:
-                              <strong>{{ characteristic.displayName }}</strong>
+                            <div class="col-md-2">
+                              Administration Unit:
+                            </div>
+                            <div class="col-md-6">
+                                <strong
+                                >{{ characteristic.displayName }}
+                              </strong>
                             </div>
                             <div class="col-md-4">
-                              System Source:
-                              <strong>{{
-                                characteristic.valueCodeSystem
-                              }}</strong>
-                            </div>
-                          </div>
-                        </section>
-                        <section
-                          class="row example-small-box mat-elevation-z4 ingr"
-                          *ngIf="characteristic.code == 'CONSERVATION'"
-                        >
-                          <div class="row">
-                            <div class="col-md-8">
-                              Conservation:
-                              <strong>{{ characteristic.displayName }}</strong>
-                            </div>
-                            <div class="col-md-4">
-                              System Source:
-                              <strong>{{
-                                characteristic.valueCodeSystem
-                              }}</strong>
+                              Source System:   <strong>{{ characteristic.valueCodeSystem }}</strong>
                             </div>
                           </div>
                         </section>
                       </div>
                     </section>
-                    <!-- Biling unit -->
-                    <section
-                      *ngFor="
-                        let characteristic of medicinalProduct?.asContent
-                          ?.characteristics
-                      "
-                    >
-                      <div class="row" *ngIf="characteristic.type == 'CD'">
-                        <section
-                          class="container content"
-                          *ngIf="characteristic.code == 'BILLING_UNIT'"
-                        >
-                          <div class="row">
-                            <section class="container content ingr">
-                              <div class="row">
-                                <div class="col-md-8">
-                                  Billing Unit:
-                                  <strong
-                                    >{{ characteristic.displayName }}
-                                  </strong>
-                                </div>
-                                <div class="col-md-4">
-                                  Source System:
-                                  <strong>
-                                    {{ characteristic.valueCodeSystem }}
-                                  </strong>
-                                </div>
-                              </div>
-                            </section>
-                          </div>
-                        </section>
-                      </div>
-                    </section>
-                  </mat-card>
+                  </div>
+                  </section>
+                  <!-- administration form -->
+                  <section
+                   *ngFor="
+                     let characteristic of medicinalProduct?.asContent
+                       ?.characteristics
+                   "
+                 >
+                   <div class="row" *ngIf="characteristic.type == 'CD'">
+                     <section
+                       class="container content"
+                       *ngIf="characteristic.code == 'FORME_ADMINISTRATION'"
+                     >
+                       <div class="row">
+                         <section class="container content ingr">
+                           <div class="row">
+                             <div class="col-md-2">
+                               Administration Form:
+                             </div>
+                             <div class="col-md-6">
+                                <strong>{{ characteristic.displayName }} </strong>
+                             </div>
+                             <div class="col-md-4">
+                               Source System:  <strong>{{ characteristic.valueCodeSystem }}</strong>
+                             </div>
+                           </div>
+                         </section>
+                       </div>
+                     </section>
+                   </div>
+                  </section>
+                  <!-- Biling unit -->
+                  <section
+                   *ngFor="
+                     let characteristic of medicinalProduct?.asContent
+                       ?.characteristics
+                   "
+                 >
+                   <div class="row" *ngIf="characteristic.type == 'CD'">
+                     <section
+                       class="container content"
+                       *ngIf="characteristic.code == 'BILLING_UNIT'"
+                     >
+                       <div class="row">
+                         <section class="container content ingr">
+                           <div class="row">
+                             <div class="col-md-2">
+                                Billing Unit:
+                             </div>
+                             <div class="col-md-6">
+                                <strong>{{ characteristic.displayName }}</strong>
+                             </div>
+                             <div class="col-md-4">
+                               Source System: <strong>{{ characteristic.valueCodeSystem }}</strong>
+                             </div>
+                           </div>
+                         </section>
+                       </div>
+                     </section>
+                   </div>
+                  </section>
                   <br />
                 </section>
               </mat-card>
@@ -1036,7 +985,7 @@
                     </section>
                     <section class="container content ingr">
                       <div class="row">
-                        <div class="col-md-3">Paragraph info:</div>
+                        <div class="col-md-3">Attestation info:</div>
                         <div class="col-md-3">
                           <div
                             *ngFor="
@@ -1099,289 +1048,187 @@
                   Saint-Luc Characteristics:</mat-card-title
                 >
                 <section class="container content">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card
-                            *ngIf="characteristic.code == 'IS_SPECIALITY'"
-                          >
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is Speciality:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                    <div class="row">
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_SPECIALITY'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6"> Is Speciality:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card
-                            *ngIf="characteristic.code == 'IS_NARCOTIC'"
-                          >
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is Narotic:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                      </mat-card>
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_NARCOTIC'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6">Is Narotic:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card *ngIf="characteristic.code == 'IS_SOLUBLE'">
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is Soluble:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                      </mat-card>
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_SOLUBLE'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6">Is Soluble:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </mat-card>
                     </div>
-                  </div>
                 </section>
                 <section class="container content">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card
-                            *ngIf="characteristic.code == 'IS_PERFUSION'"
-                          >
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is Perfusion:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                    <div class="row">
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_PERFUSION'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6"> Is Perfusion:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card
-                            *ngIf="characteristic.code == 'IS_WATER_SCALE'"
-                          >
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is water Scale:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                      </mat-card>
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_WATER_SCALE'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6">Is water Scale:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card *ngIf="characteristic.code == 'IS_SOLUBLE'">
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is Soluble:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                      </mat-card>
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_SOLUBLE'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6">Is Soluble:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </mat-card>
                     </div>
-                  </div>
                 </section>
                 <section class="container content">
-                  <div class="row">
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card
-                            *ngIf="characteristic.code == 'IS_TRACEABLE'"
-                          >
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is Traceable:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                    <div class="row">
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_TRACEABLE'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6">Is Traceable:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card
-                            *ngIf="characteristic.code == 'EXT_MED_MGT'"
-                          >
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Ext Med Mgt:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                      </mat-card>
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'EXT_MED_MGT'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6">Ext Med Mgt:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div
-                        *ngFor="
-                          let characteristic of medicinalProduct?.asContent
-                            ?.characteristics
-                        "
-                      >
-                        <div *ngIf="characteristic.type == 'boolean'">
-                          <mat-card *ngIf="characteristic.code == 'IS_FOREIGN'">
-                            <section>
-                              <div class="row">
-                                <div class="col-xs-6">Is Foreign:</div>
-                                <div class="col-xs-6">
-                                  <mat-radio-group>
-                                    <mat-radio-button
-                                      value="warn"
-                                      [checked]="
-                                        characteristic.valueCode == 'true'
-                                      "
-                                    >
-                                    </mat-radio-button>
-                                  </mat-radio-group>
+                      </mat-card>
+                      <mat-card class="col-md-4">
+                        <div *ngFor=" let characteristic of medicinalProduct?.asContent ?.characteristics ">
+                          <div *ngIf="characteristic.type == 'boolean'">
+                            <div *ngIf="characteristic.code == 'IS_FOREIGN'">
+                              <section>
+                                <div class="row">
+                                  <div class="col-xs-6">Is Foreign:</div>
+                                  <div class="col-xs-6">
+                                    <mat-radio-group>
+                                      <mat-radio-button value="warn" [checked]="characteristic.valueCode == 'true'">
+                                      </mat-radio-button>
+                                    </mat-radio-group>
+                                  </div>
                                 </div>
-                              </div>
-                            </section>
-                          </mat-card>
+                              </section>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      </mat-card>
                     </div>
-                  </div>
                 </section>
               </mat-card>
             </div>
