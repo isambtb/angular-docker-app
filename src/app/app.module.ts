@@ -53,6 +53,7 @@ import { MedicamentInfosComponent } from './dashboard/component/medicament-infos
 import { HttpClientModule } from '@angular/common/http';
 import { MedicinalProductsComponent } from './dashboard/medicinal-products/medicinal-products.component';
 import { EditionComponent } from './dashboard/component/edition/edition.component';
+import { SearchComponent } from './dashboard/component/search/search.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { EditionComponent } from './dashboard/component/edition/edition.componen
     SettingsComponent,
     MedicamentInfosComponent,
     MedicinalProductsComponent,
-    EditionComponent
+    EditionComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

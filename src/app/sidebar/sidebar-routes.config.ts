@@ -3,6 +3,7 @@ export const ROUTES = [
     { path: '/dashboard', title: 'Home', icon: 'dashboard', children: null },
     { path: 'profile', title: 'User Profile', icon: 'person', children: null },
     { path: 'table', title: 'Medicament List', icon: 'content_paste', children: null },
+    { path: '/dashboard/medicinal-products/search', title: 'Search', icon: 'content_paste', children: null },
     {
         path: '#component', id: 'component', title: 'Medicaments management', icon: 'apps', children: [
             { path: 'components/spl', title: 'Search', icon: 'S' },

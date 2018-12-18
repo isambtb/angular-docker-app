@@ -16,6 +16,7 @@ import { LockComponent } from './page/lock/lock.component';
 import { RegisterComponent } from './page/register/register.component';
 import { MedicamentInfosComponent } from './dashboard/component/medicament-infos/medicament-infos.component';
 import { EditionComponent } from './dashboard/component/edition/edition.component';
+import { SearchComponent } from './dashboard/component/search/search.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'medicinal-products/compare-versions/:id', component: EditionComponent },
       { path: 'profile', component: ProfileComponent },
+      { path: 'medicinal-products/search', component: SearchComponent },
       { path: 'table', component: MedicinalProductsComponent },
       { path: 'notification', component: NotificationComponent },
       { path: 'alert', component: SweetAlertComponent },
